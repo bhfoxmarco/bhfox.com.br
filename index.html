@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- SEO (Search Engine Optimization - Otimização para Motores de Busca) -->
+  <title>BHFox | Fábrica de Ideias com Inteligência Artificial em BH</title>
+  <meta name="description" content="Desde 2004, a BHFox transforma ideias em escala com IA (Inteligência Artificial). Consultoria em tecnologia e marketing digital para o mercado imobiliário em Belo Horizonte.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://bhfox.com.br/">
+
+  <!-- Open Graph (OG) - Tags para compartilhamento em redes sociais como WhatsApp, Meta (Facebook/Instagram) e LinkedIn -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bhfox.com.br/">
+  <meta property="og:title" content="BHFox | Fábrica de Ideias com Inteligência Artificial">
+  <meta property="og:description" content="Desde 2004, evoluindo do software sob medida para uma Fábrica de Ideias que utiliza IA para o crescimento do seu negócio.">
+  <meta property="og:image" content="https://bhfox.com.br/marco-antonio.webp">
+  <meta property="og:locale" content="pt_BR">
+
+  <!-- Twitter Card - Para compartilhamento no Twitter/X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BHFox | Fábrica de Ideias com IA">
+  <meta name="twitter:description" content="Desde 2004, transformando ideias em escala com Inteligência Artificial.">
+  <meta name="twitter:image" content="https://bhfox.com.br/marco-antonio.webp">
+
+  <!-- Favicon (ícone exibido na aba do navegador e favoritos) -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+  <!-- Google Fonts - Carregamento assíncrono (sem bloquear renderização) para performance -->
+  <!-- DM Sans: fonte profissional, clean e moderna — usada em todo o site -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,300&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─── CSS Custom Properties (Variáveis CSS) ─── */
+    :root {
+      --black: #000000;
+      --green: #39FF14;
+      --green-dim: rgba(57,255,20,.18);
+      --green-glow: rgba(57,255,20,.55);
+      --white: #f0f0f0;
+      --gray: #a0a0a0;
+      --card-bg: rgba(255,255,255,.03);
+      --border: rgba(57,255,20,.2);
+      --font-display: 'DM Sans', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --max-w: 1100px;
+      --radius: 16px;
+    }
+
+    /* ─── Reset & Base ─── */
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{
+      background:var(--black);
+      color:var(--white);
+      font-family:var(--font-body);
+      font-weight:400;
+      line-height:1.75;
+      font-size:16px;
+      overflow-x:hidden;
+    }
+
+    /* ─── Cursor personalizado ─── */
+    body{cursor:none}
+    #cursor{
+      position:fixed;width:10px;height:10px;
+      background:var(--green);border-radius:50%;
+      pointer-events:none;z-index:9999;
+      transform:translate(-50%,-50%);
+      transition:transform .12s ease,width .25s,height .25s,opacity .25s;
+      box-shadow:0 0 12px var(--green-glow),0 0 30px rgba(57,255,20,.3);
+    }
+    #cursor-ring{
+      position:fixed;width:36px;height:36px;
+      border:1px solid rgba(57,255,20,.5);border-radius:50%;
+      pointer-events:none;z-index:9998;
+      transform:translate(-50%,-50%);
+      transition:transform .35s ease,width .35s,height .35s;
+    }
+    a:hover~#cursor,button:hover~#cursor{width:20px;height:20px}
+
+    /* ─── Scrollbar ─── */
+    ::-webkit-scrollbar{width:4px}
+    ::-webkit-scrollbar-track{background:#000}
+    ::-webkit-scrollbar-thumb{background:var(--green);border-radius:4px}
+
+    /* ─── Noise overlay (textura de ruído para profundidade visual) ─── */
+    body::before{
+      content:'';
+      position:fixed;inset:0;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events:none;z-index:0;opacity:.45;
+    }
+
+    /* ─── Linha diagonal decorativa ─── */
+    body::after{
+      content:'';
+      position:fixed;top:0;right:0;
+      width:1px;height:100vh;
+      background:linear-gradient(180deg,transparent,var(--green),transparent);
+      opacity:.15;pointer-events:none;z-index:0;
+    }
+
+    /* ─── Container ─── */
+    .wrap{width:100%;max-width:var(--max-w);margin:0 auto;padding:0 24px;position:relative;z-index:1}
+
+    /* ─── HEADER ─── */
+    header{
+      position:fixed;top:0;left:0;right:0;
+      padding:18px 0;z-index:100;
+      background:rgba(0,0,0,.7);
+      backdrop-filter:blur(16px);
+      -webkit-backdrop-filter:blur(16px);
+      border-bottom:1px solid var(--border);
+      transition:padding .3s;
+    }
+    header.scrolled{padding:12px 0}
+    .header-inner{display:flex;align-items:center;justify-content:space-between}
+    .logo{
+      font-family:var(--font-display);font-size:1.6rem;font-weight:800;
+      color:var(--white);text-decoration:none;letter-spacing:-.02em;
+    }
+    .logo-img-link{display:flex;align-items:center;text-decoration:none}
+    .logo-img{height:44px;width:auto;display:block;object-fit:contain;transition:filter .3s,transform .2s}
+    .logo-img:hover{filter:drop-shadow(0 0 8px rgba(57,255,20,.6));transform:scale(1.04)}
+    .logo span{color:var(--green)}
+    nav{display:flex;gap:32px;list-style:none}
+    nav a{
+      font-size:.85rem;font-weight:500;
+      color:var(--gray);text-decoration:none;
+      letter-spacing:.06em;text-transform:uppercase;
+      transition:color .25s;
+    }
+    nav a:hover{color:var(--green)}
+    .nav-cta{
+      font-size:.82rem;font-weight:500;
+      color:var(--black)!important;
+      background:var(--green);
+      padding:8px 20px;border-radius:40px;
+      transition:box-shadow .3s,transform .2s!important;
+    }
+    .nav-cta:hover{
+      box-shadow:0 0 18px var(--green-glow)!important;
+      transform:translateY(-1px);
+    }
+
+    /* Menu hambúrguer (para mobile) */
+    .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+    .burger span{display:block;width:24px;height:2px;background:var(--white);transition:.3s}
+    .burger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+    .burger.open span:nth-child(2){opacity:0}
+    .burger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+    /* ─── HERO SECTION ─── */
+    #hero{
+      min-height:100vh;display:flex;align-items:center;
+      padding:120px 0 80px;position:relative;overflow:hidden;
+    }
+    /* Grade de fundo estilo circuito */
+    #hero::before{
+      content:'';position:absolute;inset:0;
+      background-image:
+        linear-gradient(rgba(57,255,20,.04) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(57,255,20,.04) 1px,transparent 1px);
+      background-size:60px 60px;
+      mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 40%,transparent 100%);
+    }
+    /* Orbes de luz (efeito de iluminação ambiente) */
+    .orb{
+      position:absolute;border-radius:50%;
+      filter:blur(90px);pointer-events:none;
+    }
+    .orb-1{
+      width:500px;height:500px;
+      background:radial-gradient(circle,rgba(57,255,20,.12),transparent 70%);
+      top:-100px;right:-100px;
+    }
+    .orb-2{
+      width:300px;height:300px;
+      background:radial-gradient(circle,rgba(57,255,20,.08),transparent 70%);
+      bottom:0;left:-80px;
+    }
+
+    .hero-inner{
+      display:grid;
+      grid-template-columns:340px 1fr;
+      gap:64px;align-items:center;
+      position:relative;z-index:2;
+    }
+
+    /* Foto circular com glow verde */
+    .photo-wrap{position:relative;display:flex;justify-content:center}
+    .photo-ring{
+      position:absolute;inset:-12px;border-radius:50%;
+      border:1px solid var(--green);
+      animation:spin-ring 12s linear infinite;
+      opacity:.4;
+    }
+    .photo-ring::before{
+      content:'';position:absolute;
+      top:-3px;left:50%;
+      width:6px;height:6px;
+      background:var(--green);border-radius:50%;
+      transform:translateX(-50%);
+      box-shadow:0 0 10px var(--green-glow);
+    }
+    @keyframes spin-ring{to{transform:rotate(360deg)}}
+    .photo{
+      width:280px;height:280px;border-radius:50%;
+      object-fit:cover;object-position:top center;
+      border:3px solid rgba(57,255,20,.35);
+      box-shadow:0 0 40px rgba(57,255,20,.25),0 0 80px rgba(57,255,20,.1),inset 0 0 20px rgba(0,0,0,.5);
+      display:block;
+      animation:float 6s ease-in-out infinite;
+    }
+    @keyframes float{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-10px)}
+    }
+
+    /* Badge sobre a foto */
+    .badge{
+      position:absolute;bottom:-14px;left:50%;transform:translateX(-50%);
+      background:var(--green);color:var(--black);
+      font-family:var(--font-display);font-size:.72rem;font-weight:700;
+      padding:5px 16px;border-radius:40px;
+      white-space:nowrap;letter-spacing:.08em;text-transform:uppercase;
+      box-shadow:0 0 20px rgba(57,255,20,.5);
+    }
+
+    .hero-text{position:relative}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;
+      font-size:.78rem;font-weight:500;color:var(--green);
+      letter-spacing:.12em;text-transform:uppercase;margin-bottom:20px;
+    }
+    .eyebrow::before{content:'';width:28px;height:1px;background:var(--green)}
+    h1{
+      font-family:var(--font-display);
+      font-size:clamp(2rem,4vw,3.1rem);
+      font-weight:800;line-height:1.15;
+      letter-spacing:-.02em;margin-bottom:20px;
+    }
+    h1 em{color:var(--green);font-style:normal}
+    .sub{
+      font-size:1.05rem;color:var(--gray);
+      max-width:480px;margin-bottom:36px;
+      line-height:1.8;
+    }
+    .hero-btns{display:flex;gap:16px;flex-wrap:wrap}
+
+    /* ─── Botões ─── */
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:14px 30px;border-radius:40px;
+      font-size:.9rem;font-weight:500;
+      text-decoration:none;transition:.25s;
+      cursor:none;
+    }
+    .btn-primary{
+      background:var(--green);color:var(--black);
+      box-shadow:0 0 24px rgba(57,255,20,.35);
+    }
+    .btn-primary:hover{box-shadow:0 0 40px rgba(57,255,20,.6);transform:translateY(-2px)}
+    .btn-ghost{
+      border:1px solid var(--border);color:var(--white);
+      backdrop-filter:blur(8px);
+    }
+    .btn-ghost:hover{border-color:var(--green);color:var(--green)}
+
+    /* Ícone WhatsApp SVG (Scalable Vector Graphics - Gráfico Vetorial Escalável) */
+    .icon-wa{width:18px;height:18px;fill:currentColor}
+
+    /* ─── SEÇÃO JORNADA ─── */
+    section{padding:100px 0;position:relative;z-index:1}
+    .section-tag{
+      font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;
+      color:var(--green);margin-bottom:12px;
+    }
+    h2{
+      font-family:var(--font-display);
+      font-size:clamp(1.6rem,3vw,2.4rem);
+      font-weight:800;letter-spacing:-.02em;line-height:1.2;margin-bottom:48px;
+    }
+    h2 span{color:var(--green)}
+
+    /* Timeline da Jornada */
+    .timeline{position:relative;padding-left:32px}
+    .timeline::before{
+      content:'';
+      position:absolute;left:0;top:8px;bottom:8px;
+      width:1px;background:linear-gradient(180deg,var(--green),transparent);
+    }
+    .tl-item{position:relative;margin-bottom:48px}
+    .tl-item:last-child{margin-bottom:0}
+    .tl-dot{
+      position:absolute;left:-36px;top:4px;
+      width:10px;height:10px;border-radius:50%;
+      background:var(--green);
+      box-shadow:0 0 12px var(--green-glow);
+    }
+    .tl-year{
+      font-family:var(--font-display);font-size:.75rem;font-weight:700;
+      color:var(--green);letter-spacing:.1em;margin-bottom:6px;
+    }
+    .tl-title{
+      font-family:var(--font-display);font-size:1.15rem;font-weight:700;
+      margin-bottom:8px;
+    }
+    .tl-text{font-size:.95rem;color:var(--gray);line-height:1.8}
+
+    /* ─── SEÇÃO DIRETOR ─── */
+    #diretor{background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(57,255,20,.04),transparent)}
+    .diretor-grid{
+      display:grid;grid-template-columns:1fr 1fr;
+      gap:56px;align-items:start;
+    }
+    .diretor-img-wrap{position:relative}
+    .diretor-photo{
+      width:100%;border-radius:var(--radius);
+      object-fit:cover;object-position:top center;
+      height:480px;
+      border:1px solid var(--border);
+      box-shadow:0 0 60px rgba(57,255,20,.12);
+    }
+    .diretor-card{
+      position:absolute;bottom:-24px;right:-24px;
+      background:var(--card-bg);
+      border:1px solid var(--border);
+      backdrop-filter:blur(12px);
+      border-radius:var(--radius);
+      padding:20px 24px;
+      min-width:200px;
+    }
+    .dc-num{
+      font-family:var(--font-display);font-size:2rem;
+      font-weight:800;color:var(--green);line-height:1;
+    }
+    .dc-label{font-size:.8rem;color:var(--gray);margin-top:4px}
+
+    .diretor-text h2{margin-bottom:12px}
+    .diretor-text .role{
+      font-size:.82rem;color:var(--green);
+      letter-spacing:.08em;text-transform:uppercase;
+      margin-bottom:6px;
+    }
+    .creci{
+      font-size:.78rem;color:var(--gray);
+      border-left:2px solid var(--green);
+      padding-left:10px;margin-bottom:24px;
+      letter-spacing:.02em;
+    }
+    .social-links{display:flex;flex-wrap:wrap;gap:12px;margin:20px 0 24px}
+    .social-btn{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:9px 18px;border-radius:40px;
+      border:1px solid var(--border);
+      font-size:.82rem;font-weight:500;color:var(--white);
+      text-decoration:none;background:var(--card-bg);
+      transition:.25s;
+    }
+    .social-btn:hover{border-color:#E1306C;color:#E1306C}
+    .social-btn-wa:hover{border-color:var(--green);color:var(--green)}
+    .diretor-text p{font-size:1rem;color:var(--gray);margin-bottom:16px;line-height:1.85}
+
+    /* Skills chips (pastilhas de competências) */
+    .skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+    .skill{
+      padding:7px 16px;border-radius:40px;
+      border:1px solid var(--border);
+      font-size:.78rem;color:var(--white);
+      background:var(--card-bg);
+      transition:.2s;
+    }
+    .skill:hover{border-color:var(--green);color:var(--green)}
+
+    /* ─── SEÇÃO CTA (Call to Action - Chamada para Ação) ─── */
+    #cta{
+      text-align:center;
+      background:linear-gradient(180deg,transparent,rgba(57,255,20,.05),transparent);
+    }
+    .cta-card{
+      border:1px solid var(--border);
+      border-radius:24px;
+      padding:80px 40px;
+      background:var(--card-bg);
+      backdrop-filter:blur(8px);
+      position:relative;overflow:hidden;
+    }
+    .cta-card::before{
+      content:'';position:absolute;
+      top:-80px;left:50%;transform:translateX(-50%);
+      width:300px;height:300px;border-radius:50%;
+      background:radial-gradient(circle,rgba(57,255,20,.12),transparent 70%);
+      pointer-events:none;
+    }
+    .cta-card h2{margin-bottom:16px}
+    .cta-card p{color:var(--gray);max-width:480px;margin:0 auto 36px}
+    .cta-card .btn{font-size:1rem;padding:16px 36px}
+
+    /* ─── FOOTER ─── */
+    /* ─── FOOTER ─── */
+    footer{
+      border-top:1px solid var(--border);
+      padding:36px 0;
+      position:relative;z-index:1;
+    }
+    .footer-inner{
+      display:flex;align-items:center;justify-content:space-between;
+      flex-wrap:wrap;gap:20px;
+    }
+    .footer-logo{display:flex;align-items:center;text-decoration:none}
+    .footer-copy{font-size:.78rem;color:var(--gray);text-align:center;flex:1}
+    .footer-copy span{color:var(--green)}
+    .footer-social{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+    .footer-social-link{
+      display:inline-flex;align-items:center;gap:7px;
+      font-size:.8rem;color:var(--gray);text-decoration:none;
+      transition:color .25s;
+    }
+    .footer-social-link:hover{color:#E1306C}
+    .footer-wa:hover{color:var(--green)!important}
+    @media(max-width:640px){
+      .footer-inner{flex-direction:column;align-items:center;text-align:center}
+    }
+
+    /* ─── Botão flutuante WhatsApp (fixo na tela) ─── */
+    .wa-float{
+      position:fixed;bottom:28px;right:28px;z-index:200;
+      width:58px;height:58px;border-radius:50%;
+      background:var(--green);
+      display:flex;align-items:center;justify-content:center;
+      box-shadow:0 0 0 0 rgba(57,255,20,.6);
+      animation:pulse-wa 2.5s infinite;
+      transition:transform .2s;
+      cursor:none;
+    }
+    .wa-float:hover{transform:scale(1.1)}
+    .wa-float svg{width:28px;height:28px;fill:#000}
+    @keyframes pulse-wa{
+      0%{box-shadow:0 0 0 0 rgba(57,255,20,.6)}
+      70%{box-shadow:0 0 0 16px rgba(57,255,20,0)}
+      100%{box-shadow:0 0 0 0 rgba(57,255,20,0)}
+    }
+
+    /* ─── Animações de entrada (Scroll reveal) ─── */
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+
+    /* ─── RESPONSIVIDADE (Mobile-first) ─── */
+    @media(max-width:900px){
+      .hero-inner{grid-template-columns:1fr;text-align:center;gap:48px}
+      .photo-wrap{justify-content:center}
+      .sub{margin:0 auto 36px}
+      .hero-btns{justify-content:center}
+      .diretor-grid{grid-template-columns:1fr}
+      .diretor-card{right:0;bottom:-16px}
+      .diretor-photo{height:360px}
+    }
+    @media(max-width:640px){
+      nav{display:none;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#000;border-bottom:1px solid var(--border);padding:20px 24px;gap:20px}
+      nav.open{display:flex}
+      .burger{display:flex}
+      .photo{width:220px;height:220px}
+      .cta-card{padding:48px 24px}
+      .diretor-card{position:static;margin-top:16px}
+      body{cursor:auto}
+      #cursor,#cursor-ring{display:none}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cursor personalizado -->
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- ════ HEADER ════ -->
+  <header id="header">
+    <div class="wrap header-inner">
+      <a href="#hero" class="logo-img-link">
+        <img src="logobhfox.webp" alt="BHFox - Logotipo" class="logo-img" width="120" height="60">
+      </a>
+      <button class="burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="nav">
+        <a href="#jornada">História</a>
+        <a href="#diretor">O Diretor</a>
+        <a href="https://wa.me/5531987139637?text=Olá,%20Marco!%20Vim%20pelo%20site%20BHFox%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener" class="nav-cta">Falar com Marco</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ════ HERO ════ -->
+  <section id="hero">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="wrap">
+      <div class="hero-inner">
+
+        <!-- Foto do Diretor -->
+        <div class="photo-wrap reveal">
+          <div class="photo-ring"></div>
+          <img
+            src="marco-antonio.webp"
+            alt="Marco Antônio — Diretor da BHFox, Analista de Sistemas e Consultor Imobiliário em Belo Horizonte"
+            class="photo"
+            width="280" height="280"
+            loading="eager"
+            fetchpriority="high"
+          >
+          <span class="badge">Diretor & Fundador</span>
+        </div>
+
+        <!-- Texto Hero -->
+        <div class="hero-text reveal" style="transition-delay:.15s">
+          <p class="eyebrow">Desde 2004 em BH</p>
+          <h1>BHFox: Transformando Ideias em Escala com <em>Inteligência Artificial</em>.</h1>
+          <p class="sub">Desde 2004, evoluindo do software sob medida para uma Fábrica de Ideias que utiliza IA (Inteligência Artificial) para o crescimento do seu negócio.</p>
+          <div class="hero-btns">
+            <a href="https://wa.me/5531987139637?text=Olá,%20Marco!%20Vim%20pelo%20site%20BHFox%20e%20gostaria%20de%20conversar." target="_blank" rel="noopener" class="btn btn-primary">
+              <svg class="icon-wa" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Falar com Marco
+            </a>
+            <a href="#jornada" class="btn btn-ghost">Nossa Jornada ↓</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ JORNADA ════ -->
+  <section id="jornada">
+    <div class="wrap">
+      <p class="section-tag reveal">Nossa Jornada</p>
+      <h2 class="reveal">20 anos de <span>Evolução</span> Contínua</h2>
+      <div class="timeline">
+
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <p class="tl-year">2004 — Fundação</p>
+          <p class="tl-title">O começo: Software Sob Medida</p>
+          <p class="tl-text">A BHFox nasce em Belo Horizonte com uma missão clara: resolver problemas reais de empresas por meio de tecnologia. Desenvolvemos sistemas customizados para pequenas e médias empresas — cada linha de código era uma solução única, criada do zero para o cliente.</p>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <p class="tl-year">2010–2018 — Expansão</p>
+          <p class="tl-title">Marketing Digital e Mercado Imobiliário</p>
+          <p class="tl-text">Com a ascensão do Marketing Digital, a BHFox ampliou seu escopo, integrando estratégias de presença online e geração de leads ao seu portfólio. O mercado imobiliário de BH (Belo Horizonte) tornou-se um campo fértil: unimos tecnologia e estratégia de vendas para transformar a decisão de compra do consumidor.</p>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <p class="tl-year">2019–2023 — Transição</p>
+          <p class="tl-title">Da entrega pontual à escala sistêmica</p>
+          <p class="tl-text">Percebemos que o futuro não estava em soluções isoladas, mas em sistemas que crescem com o cliente. Iniciamos a transição para um modelo de consultoria mais estratégico, orientado a resultados mensuráveis e escalabilidade real.</p>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <p class="tl-year">2024 → Hoje — IA (Inteligência Artificial)</p>
+          <p class="tl-title">Fábrica de Ideias com IA</p>
+          <p class="tl-text">A BHFox se posiciona hoje como uma Fábrica de Ideias: utilizamos IA (Inteligência Artificial) generativa, automações inteligentes e análise de dados para criar aplicações escaláveis que aceleram o crescimento de negócios. A tecnologia deixou de ser ferramenta e se tornou vantagem competitiva.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ DIRETOR ════ -->
+  <section id="diretor">
+    <div class="wrap">
+      <div class="diretor-grid">
+
+        <div class="diretor-img-wrap reveal">
+          <img
+            src="marco-antonio.webp"
+            alt="Marco Antônio — Diretor BHFox"
+            class="diretor-photo"
+            width="500" height="480"
+            loading="lazy"
+          >
+          <div class="diretor-card">
+            <p class="dc-num">+20</p>
+            <p class="dc-label">Anos de experiência em tecnologia</p>
+          </div>
+        </div>
+
+        <div class="diretor-text reveal" style="transition-delay:.2s">
+          <p class="section-tag">O Diretor</p>
+          <h2>Marco <span>Antônio</span></h2>
+          <p class="role">Fundador · Analista de Sistemas · Consultor Imobiliário</p>
+          <p class="creci">CRECI-MG (Conselho Regional de Corretores de Imóveis de Minas Gerais) nº 46.689</p>
+
+          <div class="social-links">
+            <a href="https://www.instagram.com/marcobhfox/" target="_blank" rel="noopener" class="social-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              @marcobhfox
+            </a>
+            <a href="https://wa.me/5531987139637?text=Olá,%20Marco!%20Vim%20pelo%20site%20BHFox." target="_blank" rel="noopener" class="social-btn social-btn-wa">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              (31) 98713-9637
+            </a>
+          </div>
+
+          <p>Formado em Administração pela PUC-Minas (Pontifícia Universidade Católica de Minas Gerais), Marco Antônio sempre teve a vocação de quem enxerga sistemas onde outros veem caos. Essa dupla formação — gestão e tecnologia — é o que diferencia sua visão no mercado.</p>
+
+          <p>Como Analista de Sistemas, construiu ao longo de 20 anos uma base técnica sólida, desenvolvendo soluções que atravessaram setores e escolas tecnológicas. Mas foi no mercado imobiliário de Belo Horizonte que seu trabalho ganhou uma dimensão humana e estratégica única.</p>
+
+          <p>Hoje, como Consultor Imobiliário (CRECI-MG — Conselho Regional de Corretores de Imóveis de Minas Gerais — nº 46.689), Marco une o poder do Marketing Digital — campanhas em Meta Ads (Facebook e Instagram), Google Ads e TikTok Ads — à compreensão profunda do comportamento do comprador. O resultado: leads (potenciais clientes) mais qualificados, ciclos de venda mais curtos e decisões de compra mais conscientes.</p>
+
+          <div class="skills">
+            <span class="skill">CRECI-MG 46.689</span>
+            <span class="skill">IA (Inteligência Artificial)</span>
+            <span class="skill">Marketing Digital</span>
+            <span class="skill">Mercado Imobiliário</span>
+            <span class="skill">Análise de Sistemas</span>
+            <span class="skill">Meta Ads</span>
+            <span class="skill">Google Ads</span>
+            <span class="skill">Automação</span>
+            <span class="skill">PUC-Minas</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ CTA (Call to Action) ════ -->
+  <section id="cta">
+    <div class="wrap">
+      <div class="cta-card reveal">
+        <p class="section-tag" style="text-align:center">Próximo Passo</p>
+        <h2>Pronto para <span>escalar</span> seu negócio?</h2>
+        <p>Converse com Marco Antônio e descubra como a BHFox pode transformar sua ideia em uma solução real, escalável e orientada por IA (Inteligência Artificial).</p>
+        <a href="https://wa.me/5531987139637?text=Olá,%20Marco!%20Vim%20pelo%20site%20BHFox%20e%20gostaria%20de%20conversar%20sobre%20meu%20negócio." target="_blank" rel="noopener" class="btn btn-primary">
+          <svg class="icon-wa" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Falar com Marco no WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ FOOTER ════ -->
+  <footer>
+    <div class="wrap footer-inner">
+      <a href="#hero" class="footer-logo">
+        <img src="logobhfox.webp" alt="BHFox" height="32" style="height:32px;width:auto;display:block;object-fit:contain">
+      </a>
+      <p class="footer-copy">© 2025 <span>BHFox®</span>. Todos os direitos reservados. Belo Horizonte, MG (Minas Gerais).</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/marcobhfox/" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram @marcobhfox">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          <span>@marcobhfox</span>
+        </a>
+        <a href="https://wa.me/5531987139637" target="_blank" rel="noopener" class="footer-social-link footer-wa" aria-label="WhatsApp (31) 98713-9637">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span>(31) 98713-9637</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ════ Botão flutuante WhatsApp ════ -->
+  <a href="https://wa.me/5531987139637?text=Olá,%20Marco!%20Vim%20pelo%20site%20BHFox." target="_blank" rel="noopener" class="wa-float" aria-label="Falar no WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script>
+    // ── Cursor personalizado ──
+    const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
+    if(cur&&ring){
+      document.addEventListener('mousemove',e=>{
+        cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';
+        ring.style.left=e.clientX+'px';ring.style.top=e.clientY+'px';
+      });
+      document.querySelectorAll('a,button,.skill').forEach(el=>{
+        el.addEventListener('mouseenter',()=>{cur.style.width='18px';cur.style.height='18px';ring.style.width='48px';ring.style.height='48px'});
+        el.addEventListener('mouseleave',()=>{cur.style.width='10px';cur.style.height='10px';ring.style.width='36px';ring.style.height='36px'});
+      });
+    }
+
+    // ── Header compacto ao rolar a página ──
+    const hdr=document.getElementById('header');
+    window.addEventListener('scroll',()=>hdr.classList.toggle('scrolled',window.scrollY>60),{passive:true});
+
+    // ── Menu hambúrguer (mobile) ──
+    const burger=document.getElementById('burger'),nav=document.getElementById('nav');
+    burger.addEventListener('click',()=>{burger.classList.toggle('open');nav.classList.toggle('open')});
+    nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{burger.classList.remove('open');nav.classList.remove('open')}));
+
+    // ── Scroll Reveal (revelação ao rolar) — usa IntersectionObserver (API nativa do navegador) ──
+    const io=new IntersectionObserver(entries=>{
+      entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}})
+    },{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  </script>
+</body>
+</html>

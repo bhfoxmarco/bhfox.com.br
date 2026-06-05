@@ -398,6 +398,183 @@
 
 <div class="divider"></div>
 
+<!-- PWA — Sua rádio vira um aplicativo -->
+<section id="app">
+  <div class="sec-label">Recurso Exclusivo</div>
+  <div class="sec-title">Sua rádio vira um<br><span style="color:var(--green)">aplicativo no celular</span></div>
+  <div class="sec-sub" style="max-width:580px">Quando o ouvinte abre sua rádio pelo celular pela primeira vez, aparece automaticamente uma mensagem perguntando se ele quer salvar o ícone na tela inicial — igual a um app de verdade.</div>
+
+  <div class="pwa-wrap">
+
+    <!-- Ilustração celular SVG -->
+    <div class="pwa-phone-wrap">
+      <svg viewBox="0 0 280 520" xmlns="http://www.w3.org/2000/svg" class="pwa-phone-svg">
+        <!-- Corpo do celular -->
+        <rect x="10" y="10" width="260" height="500" rx="36" ry="36" fill="#0c1f12" stroke="#1aff7a" stroke-width="2"/>
+        <!-- Tela -->
+        <rect x="20" y="50" width="240" height="420" rx="8" ry="8" fill="#050f08"/>
+        <!-- Notch -->
+        <rect x="100" y="14" width="80" height="18" rx="9" fill="#050f08"/>
+        <!-- Barra de status -->
+        <text x="35" y="72" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,0.3)">9:41</text>
+        <text x="210" y="72" font-family="sans-serif" font-size="10" fill="rgba(255,255,255,0.3)">●●●</text>
+        <!-- Grade de ícones -->
+        <!-- Linha 1 -->
+        <rect x="38" y="90" width="44" height="44" rx="12" fill="#1a3a22"/>
+        <text x="60" y="118" font-family="sans-serif" font-size="18" text-anchor="middle" fill="#7aaa8a">📷</text>
+        <rect x="98" y="90" width="44" height="44" rx="12" fill="#1a3a22"/>
+        <text x="120" y="118" font-family="sans-serif" font-size="18" text-anchor="middle" fill="#7aaa8a">📱</text>
+        <rect x="158" y="90" width="44" height="44" rx="12" fill="#1a3a22"/>
+        <text x="180" y="118" font-family="sans-serif" font-size="18" text-anchor="middle" fill="#7aaa8a">💬</text>
+        <rect x="218" y="90" width="44" height="44" rx="12" fill="#1a3a22"/>
+        <text x="240" y="118" font-family="sans-serif" font-size="18" text-anchor="middle" fill="#7aaa8a">🗺</text>
+        <!-- Labels linha 1 -->
+        <text x="60" y="146" font-family="sans-serif" font-size="9" text-anchor="middle" fill="rgba(255,255,255,0.35)">Câmera</text>
+        <text x="120" y="146" font-family="sans-serif" font-size="9" text-anchor="middle" fill="rgba(255,255,255,0.35)">Tel</text>
+        <text x="180" y="146" font-family="sans-serif" font-size="9" text-anchor="middle" fill="rgba(255,255,255,0.35)">Msgs</text>
+        <text x="240" y="146" font-family="sans-serif" font-size="9" text-anchor="middle" fill="rgba(255,255,255,0.35)">Maps</text>
+        <!-- Linha 2 -->
+        <rect x="38" y="158" width="44" height="44" rx="12" fill="#1a3a22"/>
+        <text x="60" y="186" font-family="sans-serif" font-size="18" text-anchor="middle" fill="#7aaa8a">🎵</text>
+        <rect x="98" y="158" width="44" height="44" rx="12" fill="#1a3a22"/>
+        <text x="120" y="186" font-family="sans-serif" font-size="18" text-anchor="middle" fill="#7aaa8a">📧</text>
+        <rect x="158" y="158" width="44" height="44" rx="12" fill="#1a3a22"/>
+        <text x="180" y="186" font-family="sans-serif" font-size="18" text-anchor="middle" fill="#7aaa8a">🌐</text>
+        <rect x="218" y="158" width="44" height="44" rx="12" fill="#1a3a22"/>
+        <text x="240" y="186" font-family="sans-serif" font-size="18" text-anchor="middle" fill="#7aaa8a">⚙️</text>
+        <!-- Labels linha 2 -->
+        <text x="60" y="214" font-family="sans-serif" font-size="9" text-anchor="middle" fill="rgba(255,255,255,0.35)">Música</text>
+        <text x="120" y="214" font-family="sans-serif" font-size="9" text-anchor="middle" fill="rgba(255,255,255,0.35)">Email</text>
+        <text x="180" y="214" font-family="sans-serif" font-size="9" text-anchor="middle" fill="rgba(255,255,255,0.35)">Web</text>
+        <text x="240" y="214" font-family="sans-serif" font-size="9" text-anchor="middle" fill="rgba(255,255,255,0.35)">Config</text>
+
+        <!-- ÍCONE DESTAQUE — Sua Rádio (maior, com brilho) -->
+        <filter id="glow-filter">
+          <feGaussianBlur stdDeviation="4" result="blur"/>
+          <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <rect x="78" y="248" width="124" height="124" rx="28" fill="#0d1b3e" stroke="#1aff7a" stroke-width="2.5" filter="url(#glow-filter)" style="animation:pwa-pulse-icon 2.5s ease-in-out infinite"/>
+        <!-- Círculo logo dentro do ícone -->
+        <circle cx="140" cy="295" r="36" fill="#7ed321" opacity="0.15" stroke="#7ed321" stroke-width="1.5"/>
+        <circle cx="140" cy="295" r="28" fill="#7ed321"/>
+        <text x="140" y="303" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#0d1b3e">RC</text>
+        <!-- Label destaque -->
+        <text x="140" y="388" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#1aff7a">Sua Rádio</text>
+
+        <!-- Linha 3 pequenos -->
+        <rect x="38" y="398" width="44" height="44" rx="12" fill="#1a3a22"/>
+        <text x="60" y="426" font-family="sans-serif" font-size="18" text-anchor="middle" fill="#7aaa8a">📺</text>
+        <rect x="198" y="398" width="44" height="44" rx="12" fill="#1a3a22"/>
+        <text x="220" y="426" font-family="sans-serif" font-size="18" text-anchor="middle" fill="#7aaa8a">🛒</text>
+        <!-- Labels -->
+        <text x="60" y="454" font-family="sans-serif" font-size="9" text-anchor="middle" fill="rgba(255,255,255,0.35)">Vídeos</text>
+        <text x="220" y="454" font-family="sans-serif" font-size="9" text-anchor="middle" fill="rgba(255,255,255,0.35)">Loja</text>
+
+        <!-- Dock inferior -->
+        <rect x="30" y="462" width="220" height="56" rx="16" fill="#0c1f12" stroke="#1a3a22" stroke-width="1"/>
+        <text x="75" y="496" font-family="sans-serif" font-size="20" text-anchor="middle" fill="#7aaa8a">📞</text>
+        <text x="140" y="496" font-family="sans-serif" font-size="20" text-anchor="middle" fill="#7aaa8a">🏠</text>
+        <text x="205" y="496" font-family="sans-serif" font-size="20" text-anchor="middle" fill="#7aaa8a">🔍</text>
+
+        <!-- Barra home -->
+        <rect x="100" y="524" width="80" height="4" rx="2" fill="rgba(255,255,255,0.2)"/>
+      </svg>
+
+      <!-- Balão de notificação -->
+      <div class="pwa-balao">
+        <div class="pwa-balao-titulo">📲 Adicionar à tela inicial?</div>
+        <div class="pwa-balao-texto">Toque em <strong>Adicionar</strong> para acessar sua rádio como um app!</div>
+        <div class="pwa-balao-btns">
+          <span class="pwa-balao-btn-cancel">Agora não</span>
+          <span class="pwa-balao-btn-ok">Adicionar</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Textos explicativos -->
+    <div class="pwa-info">
+      <div class="pwa-step">
+        <div class="pwa-step-num">1</div>
+        <div>
+          <strong>Ouvinte abre sua rádio no celular</strong>
+          <p>Pelo link que você compartilha no WhatsApp ou redes sociais.</p>
+        </div>
+      </div>
+      <div class="pwa-step">
+        <div class="pwa-step-num">2</div>
+        <div>
+          <strong>Aparece a mensagem automática</strong>
+          <p>O celular pergunta se o ouvinte quer salvar o ícone da rádio na tela inicial.</p>
+        </div>
+      </div>
+      <div class="pwa-step">
+        <div class="pwa-step-num">3</div>
+        <div>
+          <strong>Ícone da sua rádio na tela do celular</strong>
+          <p>Igual a um app nativo — sem precisar publicar na App Store ou Google Play.</p>
+        </div>
+      </div>
+      <div class="pwa-badges">
+        <div class="pwa-badge"><span>🤖</span> Android</div>
+        <div class="pwa-badge"><span>🍎</span> iPhone</div>
+      </div>
+      <div class="pwa-destaque">
+        Sua rádio na tela do celular do ouvinte — <strong>para sempre</strong>, com um toque.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .pwa-wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:3rem;}
+  @media(max-width:768px){.pwa-wrap{grid-template-columns:1fr;gap:2rem;}}
+  .pwa-phone-wrap{display:flex;flex-direction:column;align-items:center;gap:20px;position:relative;}
+  .pwa-phone-svg{width:100%;max-width:260px;filter:drop-shadow(0 0 30px rgba(26,255,122,0.2));}
+  @keyframes pwa-pulse-icon{
+    0%,100%{filter:drop-shadow(0 0 8px rgba(26,255,122,0.4));}
+    50%{filter:drop-shadow(0 0 20px rgba(26,255,122,0.8));}
+  }
+  .pwa-balao{
+    background:#0c1f12;border:1px solid rgba(26,255,122,0.4);
+    border-radius:16px;padding:16px 20px;max-width:260px;
+    box-shadow:0 0 30px rgba(26,255,122,0.15);
+    animation:pwa-balao-in 0.6s ease both;
+  }
+  @keyframes pwa-balao-in{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+  .pwa-balao-titulo{font-size:13px;font-weight:700;color:var(--text);margin-bottom:6px;}
+  .pwa-balao-texto{font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:12px;}
+  .pwa-balao-btns{display:flex;gap:10px;justify-content:flex-end;}
+  .pwa-balao-btn-cancel{font-size:12px;color:var(--dim);cursor:default;}
+  .pwa-balao-btn-ok{font-size:12px;font-weight:700;color:var(--black);background:var(--green);padding:5px 14px;border-radius:40px;cursor:default;}
+  .pwa-info{display:flex;flex-direction:column;gap:24px;}
+  .pwa-step{display:flex;gap:16px;align-items:flex-start;}
+  .pwa-step-num{
+    width:36px;height:36px;border-radius:50%;
+    background:rgba(26,255,122,0.1);border:1px solid rgba(26,255,122,0.4);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Bebas Neue',sans-serif;font-size:1.1rem;color:var(--green);
+    flex-shrink:0;
+  }
+  .pwa-step strong{font-size:.95rem;color:var(--text);display:block;margin-bottom:4px;}
+  .pwa-step p{font-size:13px;color:var(--dim);line-height:1.6;}
+  .pwa-badges{display:flex;gap:12px;flex-wrap:wrap;}
+  .pwa-badge{
+    display:inline-flex;align-items:center;gap:6px;
+    background:rgba(26,255,122,0.06);border:1px solid rgba(26,255,122,0.2);
+    color:var(--muted);font-size:13px;font-weight:500;
+    padding:8px 18px;border-radius:40px;
+  }
+  .pwa-destaque{
+    background:rgba(26,255,122,0.06);border-left:3px solid var(--green);
+    padding:14px 18px;border-radius:0 12px 12px 0;
+    font-size:14px;color:var(--muted);line-height:1.6;
+  }
+  .pwa-destaque strong{color:var(--green);}
+</style>
+
+<div class="divider"></div>
+
 <!-- PRECO -->
 <div class="price-wrap" id="preco">
   <div class="price-inner">

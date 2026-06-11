@@ -80,7 +80,8 @@
   .capa-descricao {
     max-width: 560px;
     font-size: 16px;
-    opacity: 0.75;
+    opacity: 1;
+    color: white;
     line-height: 1.7;
     margin-bottom: 64px;
   }
@@ -104,7 +105,8 @@
   }
   .capa-metrica .desc {
     font-size: 12px;
-    opacity: 0.7;
+    color: white;
+    opacity: 0.9;
     margin-top: 4px;
   }
   .capa-rodape {
@@ -116,11 +118,12 @@
   }
   .capa-rodape .confidencial {
     font-size: 11px;
-    opacity: 0.5;
+    color: white;
+    opacity: 0.8;
     text-transform: uppercase;
     letter-spacing: 1px;
   }
-  .capa-rodape .data { font-size: 13px; opacity: 0.6; }
+  .capa-rodape .data { font-size: 13px; color: white; opacity: 0.9; }
 
   /* LAYOUT GERAL */
   .pagina {
@@ -950,10 +953,137 @@
     </tbody>
   </table>
 
+  <h3>Investimento real até entrar em produção — breakdown detalhado</h3>
+  <p style="margin-bottom:16px;">Você desenvolve o sistema. Sem mão de obra terceirizada. Hospedagem gratuita durante os testes. Abaixo, cada real que será desembolsado até o produto estar no ar e pronto para cobrar clientes.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Fase</th>
+        <th>Custo</th>
+        <th>Observação</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Hospedagem — Render.com (desenvolvimento)</td>
+        <td>Meses 1–4</td>
+        <td style="color:#166534;font-weight:700;">R$ 0</td>
+        <td>Plano gratuito — suficiente para testes e validação</td>
+      </tr>
+      <tr>
+        <td>Créditos InfoSimples (testes com placas reais)</td>
+        <td>Mês 2–3</td>
+        <td style="font-weight:700;">R$ 60</td>
+        <td>~40 consultas de teste para validar a integração</td>
+      </tr>
+      <tr>
+        <td>Créditos ConsultaPlaca (testes com placas reais)</td>
+        <td>Mês 2–3</td>
+        <td style="font-weight:700;">R$ 80</td>
+        <td>~40 consultas de leilão, sinistro e gravame</td>
+      </tr>
+      <tr>
+        <td>Créditos Módulo Veicular (testes complementares)</td>
+        <td>Mês 3</td>
+        <td style="font-weight:700;">R$ 60</td>
+        <td>~30 consultas para validar cobertura nacional</td>
+      </tr>
+      <tr>
+        <td>Motor de análise — processamento de teste</td>
+        <td>Mês 2–4</td>
+        <td style="font-weight:700;">R$ 20</td>
+        <td>~100 análises de teste (custo centavos por análise)</td>
+      </tr>
+      <tr>
+        <td>Domínio (checktemponi.com.br)</td>
+        <td>Mês 4</td>
+        <td style="font-weight:700;">R$ 40</td>
+        <td>Registro anual no Registro.br</td>
+      </tr>
+      <tr>
+        <td>Hospedagem produção — Railway.app (1º mês)</td>
+        <td>Mês 4</td>
+        <td style="font-weight:700;">R$ 42</td>
+        <td>Primeiro mês em produção real com clientes</td>
+      </tr>
+      <tr>
+        <td>Redis (cache) — 1º mês em produção</td>
+        <td>Mês 4</td>
+        <td style="font-weight:700;">R$ 15</td>
+        <td>Add-on Railway.app para cache de consultas</td>
+      </tr>
+      <tr>
+        <td>Reserva para imprevistos (excesso de consultas, ajustes)</td>
+        <td>Mês 3–4</td>
+        <td style="font-weight:700;">R$ 100</td>
+        <td>Margem de segurança para testes extras</td>
+      </tr>
+      <tr style="background:#f0fdf4;">
+        <td><strong>TOTAL ATÉ ENTRAR EM PRODUÇÃO</strong></td>
+        <td><strong>4 meses</strong></td>
+        <td style="color:#166534;font-weight:800;font-size:16px;">R$ 417</td>
+        <td><strong>Sem mão de obra — você desenvolve</strong></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="sep"></div>
+
+  <h3>Economia por consulta em produção — o que você paga vs. o que você cobra</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Custo (você paga)</th>
+        <th>Preço (você cobra)</th>
+        <th>Sua margem</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>APIs de dados (InfoSimples + ConsultaPlaca + Módulo Veicular)</td>
+        <td style="font-weight:700;">R$ 2,00–3,00</td>
+        <td rowspan="4" style="vertical-align:middle;text-align:center;font-size:22px;font-weight:800;color:#166534;">R$ 9,90<br><span style="font-size:12px;font-weight:400;color:#6b7280;">consulta avulsa</span></td>
+        <td rowspan="4" style="vertical-align:middle;text-align:center;font-size:22px;font-weight:800;color:#166534;">~R$ 6,50<br><span style="font-size:12px;font-weight:400;color:#6b7280;">por consulta</span></td>
+      </tr>
+      <tr>
+        <td>Motor de análise (processamento)</td>
+        <td style="font-weight:700;">R$ 0,03–0,06</td>
+      </tr>
+      <tr>
+        <td>Hospedagem rateada por consulta</td>
+        <td style="font-weight:700;">R$ 0,10–0,30</td>
+      </tr>
+      <tr style="background:#fef9f0;">
+        <td><strong>TOTAL DE CUSTO POR CONSULTA</strong></td>
+        <td style="font-weight:800;color:#92400e;">R$ 2,13–3,36<br><span style="font-size:11px;font-weight:400;">média: ~R$ 2,75</span></td>
+      </tr>
+    </tbody>
+  </table>
+
   <div class="highlight" style="margin-top:28px;">
-    <h3>Investimento total para chegar ao produto comercial (Fase 3)</h3>
-    <div class="num-destaque">R$ 8.000–15.000</div>
-    <p>Cobre 4 meses de desenvolvimento, hospedagem, créditos de API para testes, e primeiras ações de marketing digital. Com 30 clientes no plano básico, o sistema é autossustentável.</p>
+    <h3>Resumo direto para o sócio</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-top:16px;">
+      <div style="background:rgba(255,255,255,0.12);border-radius:10px;padding:20px;text-align:center;">
+        <div style="font-size:11px;opacity:0.7;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Você gasta até entrar no ar</div>
+        <div style="font-size:36px;font-weight:800;color:#93c5fd;">R$ 417</div>
+        <div style="font-size:12px;opacity:0.7;margin-top:6px;">em 4 meses de desenvolvimento</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.12);border-radius:10px;padding:20px;text-align:center;">
+        <div style="font-size:11px;opacity:0.7;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Cada consulta custa</div>
+        <div style="font-size:36px;font-weight:800;color:#93c5fd;">~R$ 2,75</div>
+        <div style="font-size:12px;opacity:0.7;margin-top:6px;">APIs + hospedagem + processamento</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.12);border-radius:10px;padding:20px;text-align:center;">
+        <div style="font-size:11px;opacity:0.7;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Você cobra por consulta</div>
+        <div style="font-size:36px;font-weight:800;color:#93c5fd;">R$ 9,90</div>
+        <div style="font-size:12px;opacity:0.7;margin-top:6px;">margem de ~R$ 6,50 por consulta (260%)</div>
+      </div>
+    </div>
+    <p style="margin-top:20px;font-size:14px;opacity:0.85;text-align:center;">Com apenas <strong style="color:white;">65 consultas avulsas vendidas</strong> você já recupera o investimento inicial de R$ 417. A partir daí, lucro puro.</p>
   </div>
 
   <div class="page-footer">

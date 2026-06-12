@@ -403,6 +403,48 @@
   /* SEPARADOR */
   .sep { height: 1px; background: var(--cinza-borda); margin: 32px 0; }
 
+  /* MOBILE RESPONSIVO */
+  @media (max-width: 768px) {
+
+    .capa { padding: 32px 24px; min-height: auto; }
+    .capa h1 { font-size: 36px; }
+    .capa .subtitulo { font-size: 16px; margin-bottom: 24px; }
+    .capa-descricao { font-size: 14px; margin-bottom: 32px; }
+    .capa-badge { font-size: 10px; margin-bottom: 24px; }
+    .capa-metricas { grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 32px; }
+    .capa-metrica .num { font-size: 22px; }
+    .capa-metrica .desc { font-size: 11px; }
+    .capa-rodape { flex-direction: column; gap: 12px; }
+
+    .pagina { padding: 32px 20px; }
+    .secao-header { flex-wrap: wrap; margin-bottom: 24px; }
+    .secao-header h2 { font-size: 18px; }
+
+    .card-grid-2,
+    .card-grid-3,
+    .card-grid-4 { grid-template-columns: 1fr; }
+
+    table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; font-size: 12px; }
+    th, td { padding: 8px 10px; min-width: 80px; }
+
+    .highlight { padding: 20px 16px; }
+    .highlight p { font-size: 15px; }
+    .num-destaque { font-size: 36px; }
+
+    .fluxo { flex-direction: column; align-items: stretch; gap: 8px; }
+    .fluxo-arrow { transform: rotate(90deg); text-align: center; }
+    .fluxo-item { min-width: unset; }
+
+    .timeline-item { flex-direction: column; gap: 12px; }
+    .timeline-dot { width: 32px; height: 32px; font-size: 13px; }
+
+    .page-footer { flex-direction: column; gap: 4px; font-size: 10px; }
+    .card .valor { font-size: 26px; }
+
+    /* Grid 3 colunas do resumo final vira coluna única */
+    .resumo-grid { flex-direction: column !important; }
+  }
+
   /* PRINT */
   @media print {
     .pagina { padding: 40px 60px; }
@@ -1066,7 +1108,7 @@
 
   <div class="highlight" style="margin-top:28px;">
     <h3>Resumo direto para o sócio</h3>
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-top:16px;">
+    <div class="resumo-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-top:16px;">
       <div style="background:rgba(255,255,255,0.12);border-radius:10px;padding:20px;text-align:center;">
         <div style="font-size:11px;opacity:0.7;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;">Você gasta até entrar no ar</div>
         <div style="font-size:36px;font-weight:800;color:#93c5fd;">R$ 417</div>

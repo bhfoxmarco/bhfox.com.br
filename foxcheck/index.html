@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fox Check — Documento Mestre do Ecossistema</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  --preto:       #0a0a0f;
+  --laranja:     #f97316;
+  --laranja-dim: #c2410c;
+  --laranja-bg:  #fff7ed;
+  --laranja-bd:  #fed7aa;
+  --verde:       #16a34a;
+  --verde-bg:    #dcfce7;
+  --verde-bd:    #86efac;
+  --azul:        #2563eb;
+  --azul-bg:     #eff6ff;
+  --azul-bd:     #bfdbfe;
+  --roxo:        #7c3aed;
+  --roxo-bg:     #f5f3ff;
+  --roxo-bd:     #ddd6fe;
+  --cinza:       #6b7280;
+  --cinza-bg:    #f9fafb;
+  --cinza-bd:    #e5e7eb;
+  --cinza-txt:   #374151;
+  --branco:      #ffffff;
+  --vermelho:    #dc2626;
+  --verm-bg:     #fee2e2;
+  --verm-bd:     #fca5a5;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Inter',sans-serif;
+  background:var(--cinza-bg);
+  color:var(--cinza-txt);
+  font-size:14px;
+  line-height:1.65;
+}
+
+/* ── ÍNDICE LATERAL ── */
+.nav-lateral {
+  position:fixed;
+  left:0; top:0; bottom:0;
+  width:220px;
+  background:var(--preto);
+  padding:24px 0;
+  overflow-y:auto;
+  z-index:100;
+}
+.nav-logo {
+  font-family:'Outfit',sans-serif;
+  font-size:20px;font-weight:700;
+  color:var(--branco);
+  padding:0 20px 20px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  letter-spacing:-0.5px;
+}
+.nav-logo span{color:var(--laranja);}
+.nav-item {
+  display:block;
+  padding:8px 20px;
+  font-size:12px;
+  color:rgba(255,255,255,.45);
+  text-decoration:none;
+  transition:color .15s;
+  border-left:2px solid transparent;
+}
+.nav-item:hover { color:white; border-left-color:var(--laranja); }
+.nav-secao {
+  font-size:9px;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;color:rgba(255,255,255,.2);
+  padding:16px 20px 4px;
+}
+
+/* ── MAIN ── */
+.main { margin-left:220px; }
+
+/* ── CAPA ── */
+.capa {
+  background:var(--preto);
+  padding:80px 72px;
+  position:relative;
+  overflow:hidden;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.capa::before {
+  content:'';
+  position:absolute;top:-150px;right:-150px;
+  width:600px;height:600px;
+  background:radial-gradient(circle,rgba(249,115,22,.18) 0%,transparent 65%);
+}
+.capa::after {
+  content:'';
+  position:absolute;bottom:-100px;left:-100px;
+  width:400px;height:400px;
+  background:radial-gradient(circle,rgba(249,115,22,.08) 0%,transparent 70%);
+}
+.capa-eyebrow {
+  font-size:11px;font-weight:600;letter-spacing:3px;
+  text-transform:uppercase;color:var(--laranja);margin-bottom:20px;
+}
+.capa h1 {
+  font-family:'Outfit',sans-serif;
+  font-size:80px;font-weight:700;color:var(--branco);
+  letter-spacing:-3px;line-height:1;margin-bottom:12px;
+}
+.capa h1 span{color:var(--laranja);}
+.capa-sub {
+  font-size:20px;font-weight:300;
+  color:rgba(255,255,255,.6);
+  max-width:580px;margin-bottom:60px;line-height:1.6;
+}
+.capa-stats {
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1px;background:rgba(255,255,255,.06);
+  border-radius:14px;overflow:hidden;
+  border:1px solid rgba(255,255,255,.07);
+  max-width:740px;margin-bottom:60px;
+}
+.capa-stat {
+  padding:24px 20px;
+  background:rgba(255,255,255,.02);
+}
+.capa-stat .num {
+  font-family:'Outfit',sans-serif;
+  font-size:32px;font-weight:700;color:var(--laranja);
+  letter-spacing:-1.5px;line-height:1;margin-bottom:6px;
+}
+.capa-stat .desc {
+  font-size:11px;color:rgba(255,255,255,.4);line-height:1.4;
+}
+.capa-footer {
+  border-top:1px solid rgba(255,255,255,.08);
+  padding-top:24px;
+  display:flex;justify-content:space-between;align-items:center;
+  max-width:740px;
+}
+.capa-footer span { font-size:11px;color:rgba(255,255,255,.25); }
+.conf-badge {
+  background:rgba(249,115,22,.12);
+  border:1px solid rgba(249,115,22,.3);
+  color:var(--laranja);
+  font-size:10px;font-weight:600;letter-spacing:1.5px;
+  text-transform:uppercase;padding:5px 14px;border-radius:20px;
+}
+
+/* ── SEÇÕES ── */
+.secao {
+  padding:72px 72px 48px;
+  border-bottom:1px solid var(--cinza-bd);
+  background:var(--branco);
+  margin-bottom:2px;
+}
+.secao:nth-child(odd){background:var(--branco);}
+.secao:nth-child(even){background:#fdfdfd;}
+
+.secao-label {
+  font-size:10px;font-weight:700;letter-spacing:3px;
+  text-transform:uppercase;color:var(--laranja);margin-bottom:10px;
+}
+.secao-title {
+  font-family:'Outfit',sans-serif;
+  font-size:44px;font-weight:700;color:var(--preto);
+  letter-spacing:-1.5px;line-height:1.1;margin-bottom:10px;
+}
+.secao-desc {
+  font-size:16px;color:var(--cinza);font-weight:400;
+  margin-bottom:40px;max-width:640px;line-height:1.6;
+}
+
+/* ── CARDS ── */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;}
+.grid-4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px;}
+
+.card {
+  background:var(--cinza-bg);
+  border:1px solid var(--cinza-bd);
+  border-radius:14px;padding:28px;
+}
+.card-laranja{background:var(--laranja-bg);border-color:var(--laranja-bd);}
+.card-verde{background:var(--verde-bg);border-color:var(--verde-bd);}
+.card-azul{background:var(--azul-bg);border-color:var(--azul-bd);}
+.card-roxo{background:var(--roxo-bg);border-color:var(--roxo-bd);}
+.card-preto{background:var(--preto);border-color:#1f2937;}
+.card-verm{background:var(--verm-bg);border-color:var(--verm-bd);}
+
+.card-icon{font-size:28px;margin-bottom:12px;}
+.card-titulo{
+  font-family:'Outfit',sans-serif;
+  font-size:16px;font-weight:700;color:var(--preto);
+  margin-bottom:8px;letter-spacing:-.3px;
+}
+.card-preto .card-titulo{color:white;}
+.card p{font-size:13px;color:var(--cinza-txt);line-height:1.65;}
+.card-preto p{color:rgba(255,255,255,.6);}
+.big-num {
+  font-family:'Outfit',sans-serif;
+  font-size:48px;font-weight:700;color:var(--laranja);
+  letter-spacing:-2px;line-height:1;margin-bottom:6px;
+}
+.num-label{font-size:11px;color:var(--cinza);margin-bottom:10px;}
+
+/* ── TABELAS ── */
+table{width:100%;border-collapse:collapse;font-size:13px;margin:16px 0;}
+th{
+  background:var(--preto);color:white;
+  padding:11px 14px;text-align:left;
+  font-size:11px;font-weight:600;
+  text-transform:uppercase;letter-spacing:.5px;
+}
+th:first-child{border-radius:8px 0 0 0;}
+th:last-child{border-radius:0 8px 0 0;}
+td{padding:10px 14px;border-bottom:1px solid var(--cinza-bd);vertical-align:top;}
+tr:last-child td{border-bottom:none;}
+tr:nth-child(even) td{background:var(--cinza-bg);}
+.th-fox{background:var(--laranja) !important;}
+.td-fox td{background:var(--laranja-bg) !important;font-weight:600;}
+.check{color:var(--verde);font-weight:700;font-size:15px;}
+.xis{color:var(--vermelho);font-weight:700;font-size:15px;}
+.parc{color:#d97706;font-weight:700;}
+
+/* ── DESTAQUE ── */
+.destaque {
+  background:var(--preto);
+  border-radius:14px;padding:32px 36px;margin:28px 0;
+  position:relative;overflow:hidden;
+}
+.destaque::before{
+  content:'';position:absolute;top:-60px;right:-60px;
+  width:200px;height:200px;
+  background:radial-gradient(circle,rgba(249,115,22,.2) 0%,transparent 70%);
+}
+.destaque h3{
+  font-size:11px;font-weight:600;letter-spacing:2px;
+  text-transform:uppercase;color:var(--laranja);margin-bottom:10px;
+}
+.destaque p{font-size:16px;color:rgba(255,255,255,.82);line-height:1.65;}
+.destaque strong{color:white;}
+.destaque-num{
+  font-family:'Outfit',sans-serif;
+  font-size:56px;font-weight:700;color:var(--laranja);
+  letter-spacing:-2px;line-height:1;margin-bottom:8px;
+}
+
+/* ── INFO BOXES ── */
+.box-laranja{
+  background:var(--laranja-bg);border:1px solid var(--laranja-bd);
+  border-left:4px solid var(--laranja);border-radius:8px;
+  padding:14px 18px;margin:14px 0;font-size:13px;color:var(--laranja-dim);
+}
+.box-verde{
+  background:var(--verde-bg);border:1px solid var(--verde-bd);
+  border-left:4px solid var(--verde);border-radius:8px;
+  padding:14px 18px;margin:14px 0;font-size:13px;color:var(--verde);
+}
+.box-azul{
+  background:var(--azul-bg);border:1px solid var(--azul-bd);
+  border-left:4px solid var(--azul);border-radius:8px;
+  padding:14px 18px;margin:14px 0;font-size:13px;color:var(--azul);
+}
+.box-verm{
+  background:var(--verm-bg);border:1px solid var(--verm-bd);
+  border-left:4px solid var(--vermelho);border-radius:8px;
+  padding:14px 18px;margin:14px 0;font-size:13px;color:var(--vermelho);
+}
+
+/* ── BADGES ── */
+.badge{
+  display:inline-block;padding:4px 12px;border-radius:20px;
+  font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;
+}
+.b-laranja{background:var(--laranja-bg);color:var(--laranja-dim);border:1px solid var(--laranja-bd);}
+.b-verde{background:var(--verde-bg);color:var(--verde);border:1px solid var(--verde-bd);}
+.b-azul{background:var(--azul-bg);color:var(--azul);border:1px solid var(--azul-bd);}
+.b-cinza{background:var(--cinza-bg);color:var(--cinza);border:1px solid var(--cinza-bd);}
+.b-verm{background:var(--verm-bg);color:var(--vermelho);border:1px solid var(--verm-bd);}
+
+/* ── SCORE VISUAL ── */
+.score-verde{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--verde-bg);border:2px solid var(--verde-bd);
+  border-radius:10px;padding:12px 20px;
+  font-family:'Outfit',sans-serif;font-size:18px;font-weight:700;color:var(--verde);
+}
+.score-amarelo{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#fef3c7;border:2px solid #fcd34d;
+  border-radius:10px;padding:12px 20px;
+  font-family:'Outfit',sans-serif;font-size:18px;font-weight:700;color:#92400e;
+}
+.score-vermelho{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--verm-bg);border:2px solid var(--verm-bd);
+  border-radius:10px;padding:12px 20px;
+  font-family:'Outfit',sans-serif;font-size:18px;font-weight:700;color:var(--vermelho);
+}
+
+/* ── MÓDULOS PRODUTO ── */
+.produto-card{
+  border-radius:16px;overflow:hidden;
+  border:2px solid var(--cinza-bd);
+  margin-bottom:20px;
+}
+.produto-header{
+  padding:28px 32px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.produto-header-laranja{background:var(--laranja);}
+.produto-header-preto{background:var(--preto);}
+.produto-nome{
+  font-family:'Outfit',sans-serif;
+  font-size:24px;font-weight:700;color:white;letter-spacing:-.5px;
+}
+.produto-preco{
+  font-family:'Outfit',sans-serif;
+  font-size:36px;font-weight:700;color:white;letter-spacing:-1.5px;
+}
+.produto-body{padding:28px 32px;}
+.modulo-linha{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:12px 0;border-bottom:1px solid var(--cinza-bd);
+}
+.modulo-linha:last-child{border-bottom:none;}
+.mod-icon{font-size:20px;flex-shrink:0;margin-top:1px;}
+.mod-info{}
+.mod-titulo{font-weight:600;color:var(--preto);font-size:13px;margin-bottom:2px;}
+.mod-desc{font-size:12px;color:var(--cinza);line-height:1.5;}
+
+/* ── FLUXO ── */
+.fluxo{display:flex;align-items:center;gap:0;margin:24px 0;overflow-x:auto;}
+.fx{
+  flex:1;text-align:center;padding:18px 10px;
+  background:var(--cinza-bg);border:1px solid var(--cinza-bd);
+  border-radius:10px;min-width:90px;
+}
+.fx-laranja{background:var(--laranja-bg);border-color:var(--laranja-bd);}
+.fx-verde{background:var(--verde-bg);border-color:var(--verde-bd);}
+.fx-azul{background:var(--azul-bg);border-color:var(--azul-bd);}
+.fx-roxo{background:var(--roxo-bg);border-color:var(--roxo-bd);}
+.fx-num{font-family:'Outfit',sans-serif;font-size:22px;font-weight:700;color:var(--laranja);}
+.fx-label{font-size:11px;font-weight:600;color:var(--cinza-txt);margin-top:4px;line-height:1.3;}
+.fx-arr{color:var(--cinza);font-size:18px;padding:0 6px;flex-shrink:0;}
+
+/* ── CRUZAMENTO ── */
+.cruz-box{
+  background:var(--preto);border-radius:14px;
+  padding:28px 32px;margin:20px 0;
+}
+.cruz-titulo{
+  font-family:'Outfit',sans-serif;
+  font-size:18px;font-weight:700;color:var(--laranja);
+  margin-bottom:20px;letter-spacing:-.5px;
+}
+.cruz-item{
+  display:flex;gap:16px;margin-bottom:16px;
+  padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.06);
+}
+.cruz-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.cruz-flag{
+  background:rgba(249,115,22,.12);
+  border:1px solid rgba(249,115,22,.25);
+  border-radius:8px;padding:10px 14px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;color:var(--laranja);
+  white-space:pre;flex-shrink:0;min-width:190px;line-height:1.6;
+}
+.cruz-desc .ctit{font-weight:600;color:white;font-size:13px;margin-bottom:6px;}
+.cruz-alerta{
+  background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.25);
+  border-radius:6px;padding:8px 12px;font-size:12px;color:#fca5a5;line-height:1.5;
+}
+
+/* ── KPI DASHBOARD ── */
+.kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0;}
+.kpi{
+  background:var(--preto);border-radius:12px;
+  padding:20px;border-left:3px solid var(--laranja);
+}
+.kpi-label{font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:8px;}
+.kpi-valor{font-family:'Outfit',sans-serif;font-size:24px;font-weight:700;color:var(--laranja);letter-spacing:-1px;line-height:1;margin-bottom:4px;}
+.kpi-desc{font-size:11px;color:rgba(255,255,255,.45);line-height:1.4;}
+
+/* ── TIMELINE ── */
+.tl-item{display:flex;gap:20px;margin-bottom:20px;}
+.tl-dot{
+  width:36px;height:36px;border-radius:50%;
+  background:var(--laranja);color:white;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Outfit',sans-serif;font-weight:800;font-size:14px;
+  flex-shrink:0;margin-top:2px;
+}
+.tl-body{flex:1;}
+.tl-titulo{font-family:'Outfit',sans-serif;font-size:15px;font-weight:700;color:var(--preto);margin-bottom:2px;}
+.tl-periodo{font-size:11px;color:var(--laranja);font-weight:600;margin-bottom:8px;}
+.tl-itens{
+  background:var(--cinza-bg);border:1px solid var(--cinza-bd);
+  border-radius:8px;padding:12px 16px;font-size:13px;
+}
+.tl-itens li{margin-bottom:4px;}
+.tl-custo{
+  display:inline-block;margin-top:8px;
+  background:var(--laranja-bg);border:1px solid var(--laranja-bd);
+  color:var(--laranja-dim);font-size:11px;font-weight:700;
+  padding:4px 12px;border-radius:20px;
+}
+
+/* ── CÓDIGO ── */
+.code-block{
+  background:#0f172a;border-radius:10px;
+  padding:20px 24px;margin:14px 0;overflow-x:auto;
+}
+.code-label{font-family:'JetBrains Mono',monospace;font-size:10px;color:#475569;margin-bottom:10px;text-transform:uppercase;letter-spacing:1px;}
+.code-block pre{font-family:'JetBrains Mono',monospace;font-size:12px;line-height:1.8;color:#e2e8f0;white-space:pre;}
+.cm{color:#475569;}.kw{color:#f97316;}.st{color:#86efac;}.fn{color:#93c5fd;}.tp{color:#fcd34d;}
+
+/* ── SEP ── */
+.sep{height:1px;background:var(--cinza-bd);margin:32px 0;}
+h3{font-family:'Outfit',sans-serif;font-size:18px;font-weight:700;color:var(--preto);margin:24px 0 12px;letter-spacing:-.3px;}
+p{margin-bottom:12px;font-size:14px;}
+ul,ol{padding-left:20px;margin-bottom:12px;}
+li{margin-bottom:6px;font-size:14px;}
+
+/* ── RODAPÉ ── */
+.rodape{
+  background:var(--preto);color:rgba(255,255,255,.35);
+  text-align:center;padding:32px;font-size:12px;
+}
+.rodape strong{color:var(--laranja);}
+
+/* ── MOBILE ── */
+@media(max-width:900px){
+  .nav-lateral{display:none;}
+  .main{margin-left:0;}
+  .capa{padding:48px 28px;}
+  .capa h1{font-size:48px;}
+  .capa-stats{grid-template-columns:1fr 1fr;}
+  .secao{padding:48px 24px 32px;}
+  .secao-title{font-size:30px;}
+  .grid-2,.grid-3,.grid-4{grid-template-columns:1fr;}
+  .kpi-grid{grid-template-columns:1fr 1fr;}
+  .fluxo{flex-direction:column;}
+  .cruz-item{flex-direction:column;}
+  table{display:block;overflow-x:auto;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV LATERAL -->
+<nav class="nav-lateral" aria-label="Índice do documento">
+  <div class="nav-logo">Fox<span>Check</span></div>
+  <div class="nav-secao">Visão geral</div>
+  <a class="nav-item" href="#ecossistema">01 — Ecossistema</a>
+  <a class="nav-item" href="#concorrencia">02 — Concorrência</a>
+  <div class="nav-secao">Produto</div>
+  <a class="nav-item" href="#produtos">03 — Produtos e Planos</a>
+  <a class="nav-item" href="#modulos">04 — Módulos do Laudo</a>
+  <a class="nav-item" href="#cruzamento">05 — Cruzamento Inteligente</a>
+  <div class="nav-secao">Técnico</div>
+  <a class="nav-item" href="#arquitetura">06 — Arquitetura Técnica</a>
+  <a class="nav-item" href="#banco">07 — Banco de Dados</a>
+  <a class="nav-item" href="#desenvolvimento">08 — Plano de Dev</a>
+  <div class="nav-secao">Negócios</div>
+  <a class="nav-item" href="#comercial">09 — Plano Comercial</a>
+  <a class="nav-item" href="#financeiro">10 — Modelo Financeiro</a>
+  <a class="nav-item" href="#juridico">11 — Responsabilidade</a>
+</nav>
+
+<div class="main">
+
+<!-- ═══════════ CAPA ═══════════ -->
+<div class="capa">
+  <div class="capa-eyebrow">Documento Mestre do Ecossistema · Junho de 2026 · Confidencial</div>
+  <h1>Fox<span>Check</span></h1>
+  <p class="capa-sub">Plataforma completa de diagnóstico veicular — Histórico oficial em segundos + Laudo de Vistoria Cautelar com cruzamento inteligente de dados.</p>
+
+  <div class="capa-stats">
+    <div class="capa-stat">
+      <div class="num">18,5M</div>
+      <div class="desc">veículos usados negociados em 2025 — recorde histórico (Fenauto — Federação Nacional das Associações dos Revendedores de Veículos Automotores)</div>
+    </div>
+    <div class="capa-stat">
+      <div class="num">274</div>
+      <div class="desc">itens verificados no laudo completo — mesmo padrão DEKRA, com diferenciais exclusivos</div>
+    </div>
+    <div class="capa-stat">
+      <div class="num">260%</div>
+      <div class="desc">margem bruta por consulta — R$ 2,75 de custo operacional, R$ 9,90 cobrado</div>
+    </div>
+    <div class="capa-stat">
+      <div class="num">R$ 417</div>
+      <div class="desc">custo total para entrar em produção — sem mão de obra terceirizada</div>
+    </div>
+  </div>
+
+  <div class="capa-footer">
+    <span>Fox Check · Documento preparado para revisão com sócios e investidores · Junho 2026</span>
+    <span class="conf-badge">Confidencial</span>
+  </div>
+</div>
+
+<!-- ═══════════ 01 — ECOSSISTEMA ═══════════ -->
+<div class="secao" id="ecossistema">
+  <div class="secao-label">Seção 01</div>
+  <div class="secao-title">O Ecossistema Fox Check</div>
+  <p class="secao-desc">Dois módulos complementares, banco de dados unificado, carteira de créditos (saldo em reais usado para comprar qualquer serviço) compartilhada. O cliente lojista usa os dois serviços em uma única plataforma.</p>
+
+  <div class="grid-2">
+    <div class="produto-card">
+      <div class="produto-header produto-header-laranja">
+        <div>
+          <div style="font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:4px;">Módulo 1 · Construir agora</div>
+          <div class="produto-nome">Fox Check Histórico</div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-size:11px;color:rgba(255,255,255,.6);margin-bottom:2px;">a partir de</div>
+          <div class="produto-preco">R$ 9,90</div>
+        </div>
+      </div>
+      <div class="produto-body">
+        <p style="font-size:13px;color:var(--cinza-txt);margin-bottom:16px;">Consulta automática em fontes oficiais brasileiras. Resultado em segundos. Sem humano no processo. Similar ao serviço básico da Dadiva (empresa de vistoria cautelar) — porém com score de risco automatizado que nenhum concorrente oferece.</p>
+        <div class="modulo-linha">
+          <div class="mod-icon">🔍</div>
+          <div class="mod-info">
+            <div class="mod-titulo">Histórico em bases de dados oficiais</div>
+            <div class="mod-desc">Restrições, multas, IPVA (Imposto sobre a Propriedade de Veículos Automotores), Renajud (Registro Nacional de Veículos Automotores em Penhora Judicial), leilão, roubo/furto, gravame (alienação fiduciária), Recall</div>
+          </div>
+        </div>
+        <div class="modulo-linha">
+          <div class="mod-icon">🎯</div>
+          <div class="mod-info">
+            <div class="mod-titulo">Score de risco Verde / Amarelo / Vermelho</div>
+            <div class="mod-desc">Calculado automaticamente com base nas flags (indicadores de alerta) ativadas pelo histórico — diferencial exclusivo não oferecido por nenhum concorrente</div>
+          </div>
+        </div>
+        <div class="modulo-linha">
+          <div class="mod-icon">📄</div>
+          <div class="mod-info">
+            <div class="mod-titulo">Relatório textual em linguagem simples</div>
+            <div class="mod-desc">Pontos críticos, pontos de atenção, pontos positivos e recomendação final de compra — sem jargão técnico-jurídico</div>
+          </div>
+        </div>
+        <div class="modulo-linha">
+          <div class="mod-icon">⚡</div>
+          <div class="mod-info">
+            <div class="mod-titulo">Consulta por Placa, Chassi (VIN — Vehicle Identification Number, Número de Identificação do Veículo) ou Renavam</div>
+            <div class="mod-desc">Três formas de identificar o veículo — mais abrangente que os concorrentes que aceitam apenas placa</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="produto-card" style="border-color:var(--preto);">
+      <div class="produto-header produto-header-preto">
+        <div>
+          <div style="font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:4px;">Módulo 2 · Construir com receita do Módulo 1</div>
+          <div class="produto-nome">Fox Check Garantido</div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-size:11px;color:rgba(255,255,255,.4);margin-bottom:2px;">a partir de</div>
+          <div class="produto-preco">R$ 290</div>
+        </div>
+      </div>
+      <div class="produto-body">
+        <p style="font-size:13px;color:var(--cinza-txt);margin-bottom:16px;">Vistoria física completa por vistoriador humano certificado, com o mesmo padrão do DEKRA Garantido — e diferenciais exclusivos: cruzamento inteligente do histórico com o checklist físico, mapa de pintura interativo e QR Code (Código de Resposta Rápida) para vídeos.</p>
+        <div class="modulo-linha">
+          <div class="mod-icon">📋</div>
+          <div class="mod-info">
+            <div class="mod-titulo">Módulo Identificação (74 itens)</div>
+            <div class="mod-desc">CRLV (Certificado de Registro e Licenciamento de Veículo), chassi, motor, vidros, etiquetas VIS (Vehicle Identification System — Sistema de Identificação do Veículo), Renajud, quilometragem</div>
+          </div>
+        </div>
+        <div class="modulo-linha">
+          <div class="mod-icon">🔧</div>
+          <div class="mod-info">
+            <div class="mod-titulo">Módulo Estrutura (27 itens)</div>
+            <div class="mod-desc">Painel dianteiro/traseiro, longarinas, colunas A/B/C, caixas de roda, teto, assoalho, pintura estrutural</div>
+          </div>
+        </div>
+        <div class="modulo-linha">
+          <div class="mod-icon">🔬</div>
+          <div class="mod-info">
+            <div class="mod-titulo">Módulo Constatação — Estado de Conservação (95 itens)</div>
+            <div class="mod-desc">Pneus, parte dianteira/traseira, laterais, equipamentos, bancos, revestimentos, segurança, acionamento do motor</div>
+          </div>
+        </div>
+        <div class="modulo-linha">
+          <div class="mod-icon">🎨</div>
+          <div class="mod-info">
+            <div class="mod-titulo">Módulo Pintura — Espessura da Camada de Tinta</div>
+            <div class="mod-desc">Medição por aparelho em cada parte do veículo. Verde = original, Amarelo = repintado, Vermelho = reparado e repintado</div>
+          </div>
+        </div>
+        <div class="modulo-linha">
+          <div class="mod-icon">📹</div>
+          <div class="mod-info">
+            <div class="mod-titulo">Vídeos com QR Code + Fotos categorizadas</div>
+            <div class="mod-desc">Parte interna, externa e adicional — acessados via QR Code no relatório digital</div>
+          </div>
+        </div>
+        <div class="modulo-linha">
+          <div class="mod-icon">✍️</div>
+          <div class="mod-info">
+            <div class="mod-titulo">Assinatura digital do vistoriador</div>
+            <div class="mod-desc">Assinatura touch (feita com o dedo na tela) do vistoriador no app mobile + revisão por perito sênior antes de emitir o PDF (Portable Document Format — Formato de Documento Portátil)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="destaque" style="margin-top:8px;">
+    <h3>O diferencial que nenhum concorrente tem</h3>
+    <p>Quando o histórico aponta uma ocorrência — sinistro lateral, perda total em leilão, capô reparado — o checklist do vistoriador já <strong>recebe alertas automáticos</strong> indicando exatamente quais peças inspecionar com atenção redobrada. A DEKRA não faz isso. A Dadiva não faz. <strong>Apenas o Fox Check Garantido.</strong></p>
+  </div>
+</div>
+
+<!-- ═══════════ 02 — CONCORRÊNCIA ═══════════ -->
+<div class="secao" id="concorrencia">
+  <div class="secao-label">Seção 02</div>
+  <div class="secao-title">Análise Competitiva</div>
+  <p class="secao-desc">Benchmarking (análise comparativa de mercado) baseado nos laudos reais da DEKRA Garantido (Sandero, 19 páginas) e da Dadiva (BMW, serviço básico), analisados em junho de 2026.</p>
+
+  <h3>Comparativo de serviços — Histórico Veicular</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Funcionalidade</th>
+        <th>Checktudo</th>
+        <th>Dadiva (básico)</th>
+        <th class="th-fox">Fox Check Histórico</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Roubo e furto (Serpro/SINESP — Sistema Nacional de Informações de Segurança Pública)</td><td><span class="check">✔</span></td><td><span class="check">✔</span></td><td><span class="check">✔</span></td></tr>
+      <tr><td>Restrições e Renajud (Registro Nacional de Veículos em Penhora Judicial)</td><td><span class="check">✔</span></td><td><span class="check">✔</span></td><td><span class="check">✔</span></td></tr>
+      <tr><td>Histórico de leilão (duas bases)</td><td><span class="check">✔</span></td><td><span class="check">✔</span></td><td><span class="check">✔</span></td></tr>
+      <tr><td>Multas / IPVA / licenciamento</td><td><span class="check">✔</span></td><td><span class="check">✔</span></td><td><span class="check">✔</span></td></tr>
+      <tr><td>Gravame (alienação fiduciária)</td><td><span class="check">✔</span></td><td><span class="parc">Parcial</span></td><td><span class="check">✔</span></td></tr>
+      <tr><td>Recall pendente</td><td><span class="check">✔</span></td><td><span class="check">✔</span></td><td><span class="check">✔</span></td></tr>
+      <tr><td>Consulta por Renavam (além de placa e chassi)</td><td><span class="xis">✗</span></td><td><span class="xis">✗</span></td><td><span class="check">✔</span></td></tr>
+      <tr><td>Score de risco Verde/Amarelo/Vermelho automático</td><td><span class="xis">✗</span></td><td><span class="xis">✗</span></td><td><span class="check" style="color:var(--laranja);">✔ Exclusivo</span></td></tr>
+      <tr><td>Relatório textual em linguagem simples</td><td><span class="xis">✗</span></td><td><span class="xis">✗</span></td><td><span class="check" style="color:var(--laranja);">✔ Exclusivo</span></td></tr>
+      <tr><td>Acesso sem CNPJ (Cadastro Nacional da Pessoa Jurídica) — aceita CPF (Cadastro de Pessoa Física)</td><td><span class="xis">✗</span></td><td><span class="xis">✗</span></td><td><span class="check">✔</span></td></tr>
+      <tr class="td-fox"><td><strong>Preço por consulta completa</strong></td><td>R$ 15–80</td><td>Incluído no laudo (R$ 80+)</td><td><strong>R$ 9,90 avulso</strong></td></tr>
+    </tbody>
+  </table>
+
+  <div class="sep"></div>
+
+  <h3>Comparativo de serviços — Laudo de Vistoria Cautelar</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Módulo / Funcionalidade</th>
+        <th>DEKRA Garantido</th>
+        <th>Dadiva (básico)</th>
+        <th class="th-fox">Fox Check Garantido</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Módulo Histórico (bases de dados)</td><td><span class="check">✔</span> 30+ itens</td><td><span class="check">✔</span> Básico</td><td><span class="check">✔</span> 30+ itens</td></tr>
+      <tr><td>Módulo Identificação (CRLV, chassi, VIS)</td><td><span class="check">✔</span> 74 itens</td><td><span class="parc">Parcial</span></td><td><span class="check">✔</span> 74 itens</td></tr>
+      <tr><td>Módulo Estrutura (longarinas, colunas, assoalho)</td><td><span class="check">✔</span> 27 itens</td><td><span class="parc">Parcial</span></td><td><span class="check">✔</span> 27 itens</td></tr>
+      <tr><td>Módulo Constatação / Estado de Conservação</td><td><span class="check">✔</span> 95 itens</td><td><span class="check">✔</span> Básico</td><td><span class="check">✔</span> 95 itens</td></tr>
+      <tr><td>Módulo Pintura — medição de espessura da camada de tinta</td><td><span class="check">✔</span> Com mapa</td><td><span class="xis">✗</span></td><td><span class="check">✔</span> Mapa interativo</td></tr>
+      <tr><td>Fotos categorizadas por módulo</td><td><span class="check">✔</span></td><td><span class="check">✔</span> Básico</td><td><span class="check">✔</span></td></tr>
+      <tr><td>Vídeos com QR Code (Código de Resposta Rápida)</td><td><span class="check">✔</span></td><td><span class="xis">✗</span></td><td><span class="check">✔</span></td></tr>
+      <tr><td>Assinatura digital do vistoriador</td><td><span class="check">✔</span></td><td><span class="xis">✗</span></td><td><span class="check">✔</span></td></tr>
+      <tr><td>Revisão por perito sênior antes do PDF</td><td><span class="check">✔</span></td><td><span class="xis">✗</span></td><td><span class="check">✔</span></td></tr>
+      <tr><td>Cruzamento histórico → alerta no checklist físico</td><td><span class="xis">✗</span></td><td><span class="xis">✗</span></td><td><span class="check" style="color:var(--laranja);">✔ Exclusivo</span></td></tr>
+      <tr><td>Mapa de pintura interativo (clicável por parte)</td><td><span class="xis">✗ Estático</span></td><td><span class="xis">✗</span></td><td><span class="check" style="color:var(--laranja);">✔ Exclusivo</span></td></tr>
+      <tr class="td-fox"><td><strong>Preço do laudo completo</strong></td><td>R$ 180–350</td><td>R$ 80–150</td><td><strong>R$ 290 (Garantido)</strong></td></tr>
+    </tbody>
+  </table>
+
+  <div class="box-laranja" style="margin-top:20px;">
+    <strong>O que aprendemos com os PDFs da concorrência:</strong> A DEKRA usa uma legenda simples Verde/Amarelo/Vermelho em cada item — mas não cruza esses dados com o histórico. A Dadiva é mais visual no layout, porém menos analítica. O Fox Check une o melhor dos dois: profundidade da DEKRA + visual da Dadiva + cruzamento inteligente exclusivo.
+  </div>
+</div>
+
+<!-- ═══════════ 03 — PRODUTOS E PLANOS ═══════════ -->
+<div class="secao" id="produtos">
+  <div class="secao-label">Seção 03</div>
+  <div class="secao-title">Produtos e Planos Comerciais</div>
+  <p class="secao-desc">Três planos para o Módulo Histórico e dois para o Módulo Garantido — todos compartilhando a mesma carteira de créditos.</p>
+
+  <h3>Módulo 1 — Fox Check Histórico</h3>
+  <div class="grid-3" style="margin-bottom:32px;">
+    <div class="card card-laranja">
+      <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--laranja-dim);margin-bottom:8px;">Avulso B2C (Business to Consumer — Venda Direta ao Consumidor)</div>
+      <div class="big-num">R$ 9,90</div>
+      <div class="num-label">por consulta</div>
+      <p>Comprador individual que quer verificar um veículo antes de fechar negócio. Paga com PIX (sistema de pagamento instantâneo do Banco Central) ou cartão. Sem cadastro obrigatório.</p>
+      <div style="margin-top:14px;background:var(--verde-bg);border-radius:8px;padding:10px 14px;font-size:12px;font-weight:700;color:var(--verde);">Margem bruta: ~R$ 7,15 por consulta (260%)</div>
+    </div>
+    <div class="card" style="border:2px solid var(--laranja);">
+      <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--cinza);margin-bottom:8px;">Plano Loja — B2B (Business to Business — Venda para Empresas)</div>
+      <div class="big-num">R$ 299</div>
+      <div class="num-label">por mês · 50 consultas incluídas (R$ 5,98 por consulta)</div>
+      <p>Para micro e pequenas revendas e despachantes. Inclui histórico de consultas, exportação de relatório e painel da loja.</p>
+      <div style="margin-top:14px;background:var(--verde-bg);border-radius:8px;padding:10px 14px;font-size:12px;font-weight:700;color:var(--verde);">Margem bruta: ~R$ 164 por loja por mês</div>
+    </div>
+    <div class="card card-preto">
+      <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:8px;">Plano Pro — Revendas Médias</div>
+      <div class="big-num">R$ 890</div>
+      <div class="num-label">por mês · 200 consultas (R$ 4,45 por consulta)</div>
+      <p style="color:rgba(255,255,255,.6);">Para revendas médias e gestoras de frota. API (Application Programming Interface — Interface de Programação de Aplicações) pública incluída para integração com sistemas próprios.</p>
+      <div style="margin-top:14px;background:rgba(255,255,255,.07);border-radius:8px;padding:10px 14px;font-size:12px;font-weight:700;color:var(--laranja);">Margem bruta: ~R$ 350 por cliente por mês</div>
+    </div>
+  </div>
+
+  <h3>Módulo 2 — Fox Check Garantido</h3>
+  <div class="grid-2">
+    <div class="card">
+      <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--cinza);margin-bottom:8px;">Cautelar Avulso</div>
+      <div class="big-num">R$ 190</div>
+      <div class="num-label">Identificação + Estrutura + Histórico</div>
+      <p>Equivalente ao DEKRA Cautelar básico. Sem módulo de pintura. Para quem quer uma vistoria estrutural rápida.</p>
+      <div style="margin-top:14px;background:var(--verde-bg);border-radius:8px;padding:10px 14px;font-size:12px;font-weight:700;color:var(--verde);">Margem estimada: ~R$ 70 por laudo</div>
+    </div>
+    <div class="card card-preto">
+      <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:8px;">Garantido Completo</div>
+      <div class="big-num">R$ 290</div>
+      <div class="num-label">Todos os módulos + Pintura + Vídeos + PDF assinado</div>
+      <p style="color:rgba(255,255,255,.6);">Equivalente ao DEKRA Garantido completo. Com os diferenciais exclusivos do Fox Check: cruzamento inteligente e mapa de pintura interativo.</p>
+      <div style="margin-top:14px;background:rgba(255,255,255,.07);border-radius:8px;padding:10px 14px;font-size:12px;font-weight:700;color:var(--laranja);">Margem estimada: ~R$ 140–170 por laudo</div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:32px;">Carteira de créditos unificada — regra de combo</h3>
+  <div class="box-verde">
+    <strong>Regra de economia para o cliente:</strong> Se o cliente já comprou o Histórico (R$ 9,90) para uma placa dentro das últimas 24 horas e em seguida solicita o Garantido Completo (R$ 290) para a mesma placa, o sistema reutiliza o histórico do cache (armazenamento temporário) sem cobrar novamente. O laudo Garantido já inclui o histórico sem custo adicional neste caso. O cliente economiza R$ 9,90 e o Fox Check não paga duas vezes pelas APIs (Application Programming Interfaces — Interfaces de Programação de Aplicações) externas.
+  </div>
+</div>
+
+<!-- ═══════════ 04 — MÓDULOS DO LAUDO ═══════════ -->
+<div class="secao" id="modulos">
+  <div class="secao-label">Seção 04</div>
+  <div class="secao-title">Módulos do Laudo Cautelar — O que verificamos</div>
+  <p class="secao-desc">Baseado na análise do laudo DEKRA Garantido do Sandero (274 itens verificados, 19 páginas). O Fox Check replica e melhora cada módulo.</p>
+
+  <div class="grid-2" style="gap:14px;">
+    <div class="card card-azul">
+      <div class="card-icon">🔍</div>
+      <div class="card-titulo">Histórico CheckAuto — 78 itens</div>
+      <p>Licenciamento/DPVAT (Danos Pessoais Causados por Veículos Automotores de Vias Terrestres), emplacamento, multas/IPVA, restrição judicial, arrendamento, bloqueio, roubo/furto em aberto, alienação, leilão (bases 1 e 2), quantidade de proprietários, Recall, indício de sinistro, Renajud, RENAINF (Registro Nacional de Infrações de Trânsito), reserva de domínio, duplicidade de motor.</p>
+      <div class="box-azul" style="margin-top:12px;margin-bottom:0;"><strong>Diferencial Fox Check:</strong> Esses dados geram as flags (indicadores de alerta) que alimentam automaticamente o checklist do vistoriador.</div>
+    </div>
+
+    <div class="card" style="border-color:var(--cinza-bd);">
+      <div class="card-icon">📋</div>
+      <div class="card-titulo">Identificação — 74 itens</div>
+      <p>CRLV, placa, número do motor, chassi (VIN — Vehicle Identification Number, Número de Identificação do Veículo), quilometragem, vidros, cintos de segurança, etiquetas VIS (Vehicle Identification System — Sistema de Identificação do Veículo), Airbag/ABS (Anti-lock Braking System — Sistema de Freios Antibloqueio), data de fabricação das peças.</p>
+      <p><strong>Observações reais do Sandero:</strong> Motor trocado (regularizado na base estadual), vidro parabrisa trocado, parafusos com marcas de chaves, luz do Airbag não conforme.</p>
+    </div>
+
+    <div class="card card-verm">
+      <div class="card-icon">🔧</div>
+      <div class="card-titulo">Estrutura — 27 itens</div>
+      <p>Parte dianteira (painel, torres do amortecedor, longarinas dianteiras, caixas de roda, almado do para-choque, painel corta-fogo), lado esquerdo (colunas A/B/C, caixa de ar), parte traseira (painel traseiro, caixa do estepe, longarinas traseiras), lado direito (colunas, caixa de ar), teto, assoalho.</p>
+      <p><strong>Observações reais do Sandero:</strong> Caixa de ar amassada, painel traseiro amassado, coluna traseira direita com corte e solda, coluna central reparada — resultado VERMELHO (não conforme).</p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">🚗</div>
+      <div class="card-titulo">Estado de Conservação — 95 itens</div>
+      <p>Pneus e rodas (14 itens), parte dianteira, laterais esquerda e direita, traseira, equipamentos (ar condicionado, vidros elétricos, alarme, auto-falantes), bancos e revestimentos, equipamentos obrigatórios de segurança (triângulo, macaco, extintor, chave de roda), acionamento do motor.</p>
+    </div>
+
+    <div class="card card-laranja">
+      <div class="card-icon">🎨</div>
+      <div class="card-titulo">Pintura — Medição de espessura da camada de tinta</div>
+      <p>Medição em micrômetros (µm) com aparelho especializado em cada parte metálica do veículo. Verde = espessura dentro do padrão de fábrica. Amarelo = espessamento indicando repintura. Vermelho = alto espessamento indicando reparação e repintura.</p>
+      <p><strong>Observações reais do Sandero:</strong> Coluna vermelha, peças dianteiras em vermelho, mais de 50% das peças em amarelo ou vermelho — veículo com histórico significativo de reparos na lataria.</p>
+      <div class="box-laranja" style="margin-bottom:0;margin-top:12px;"><strong>Diferencial Fox Check:</strong> Mapa de pintura interativo SVG (Scalable Vector Graphics — formato de imagem vetorial que se adapta a qualquer tamanho de tela) — cada parte do veículo é clicável e exibe a leitura exata ao passar o mouse.</div>
+    </div>
+
+    <div class="card card-verde">
+      <div class="card-icon">📹</div>
+      <div class="card-titulo">Vídeos + Fotos categorizadas</div>
+      <p>Fotos organizadas por módulo: estrutura (longarinas, colunas, assoalho), identificação (CRLV, chassi, hodômetro, etiquetas), constatação (pneus, laterais, interior), adicionais. Vídeos da parte interna, externa e adicional — acessados por QR Code (Código de Resposta Rápida) no relatório.</p>
+      <div class="box-verde" style="margin-bottom:0;margin-top:12px;"><strong>Diferencial Fox Check:</strong> O QR Code abre um portal digital do cliente onde ele vê histórico + fotos + vídeos em uma tela única — sem precisar abrir um PDF de 19 páginas.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ 05 — CRUZAMENTO ═══════════ -->
+<div class="secao" id="cruzamento">
+  <div class="secao-label">Seção 05</div>
+  <div class="secao-title">Cruzamento Inteligente de Dados</div>
+  <p class="secao-desc">O diferencial exclusivo do Fox Check Garantido. O histórico alimenta automaticamente o checklist do vistoriador com alertas específicos por parte do veículo.</p>
+
+  <div class="cruz-box">
+    <div class="cruz-titulo">Exemplos reais de cruzamento — o que o vistoriador vê no app (aplicativo) móvel</div>
+
+    <div class="cruz-item">
+      <div class="cruz-flag">flag_sinistro_lateral
+= True
+
+Fonte: ConsultaPlaca
+Colisão lateral — 03/2022</div>
+      <div class="cruz-desc">
+        <div class="ctit">Histórico → app destaca Colunas A, B e soleira laterais</div>
+        <div class="cruz-alerta">⚠ ATENÇÃO — Coluna A esquerda · Coluna B · Soleira<br>Histórico de colisão lateral (03/2022). Inspecione Colunas A, B e C com atenção redobrada. Verifique soleira e assoalho no lado afetado.</div>
+      </div>
+    </div>
+
+    <div class="cruz-item">
+      <div class="cruz-flag">flag_perda_total
+= True
+
+Fonte: ConsultaPlaca
+Perda total — leilão 08/2021</div>
+      <div class="cruz-desc">
+        <div class="ctit">Perda total → alerta vermelho em TODOS os itens estruturais</div>
+        <div class="cruz-alerta">🔴 CRÍTICO — Todos os itens estruturais<br>Veículo com histórico de perda total (08/2021). Inspecione todos os itens com máxima atenção. Verifique etiquetas VIS (Vehicle Identification System) em todos os vidros. Confirme correspondência do chassi.</div>
+      </div>
+    </div>
+
+    <div class="cruz-item">
+      <div class="cruz-flag">Pintura: coluna
+traseira VERMELHA
+
+Medição: 623 µm
+(micrômetros)
+Padrão: ~120 µm</div>
+      <div class="cruz-desc">
+        <div class="ctit">Espessura anômala de pintura → alerta de reparação estrutural</div>
+        <div class="cruz-alerta">⚠ ATENÇÃO — Coluna traseira direita<br>Espessura de tinta muito acima do padrão de fábrica (623 µm vs. ~120 µm esperado). Indicativo de reparação profunda. Confirme no módulo estrutural se há corte e solda nesta peça.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="box-verde" style="margin-top:8px;">
+    <strong>Por que isso importa para o cliente:</strong> O vistoriador chega ao veículo já sabendo onde olhar. Isso reduz o tempo de vistoria, aumenta a assertividade do laudo e praticamente elimina o risco de deixar passar algo crítico que o histórico já havia sinalizado.
+  </div>
+</div>
+
+<!-- ═══════════ 06 — ARQUITETURA ═══════════ -->
+<div class="secao" id="arquitetura">
+  <div class="secao-label">Seção 06</div>
+  <div class="secao-title">Arquitetura Técnica</div>
+  <p class="secao-desc">Stack (conjunto de tecnologias) enxuto, moderno e escalável. Construído para crescer sem reescrever o código — cada componente tem responsabilidade única e pode ser trocado independentemente.</p>
+
+  <h3>Fluxo de uma consulta de Histórico — do usuário ao relatório</h3>
+  <div class="fluxo">
+    <div class="fx fx-laranja"><div class="fx-num">①</div><div class="fx-label">Placa/Chassi/Renavam</div></div>
+    <div class="fx-arr">→</div>
+    <div class="fx"><div class="fx-num">②</div><div class="fx-label">Validação do formato</div></div>
+    <div class="fx-arr">→</div>
+    <div class="fx fx-azul"><div class="fx-num">③</div><div class="fx-label">Cache válido? Reusa</div></div>
+    <div class="fx-arr">→</div>
+    <div class="fx"><div class="fx-num">④</div><div class="fx-label">6 APIs em paralelo</div></div>
+    <div class="fx-arr">→</div>
+    <div class="fx"><div class="fx-num">⑤</div><div class="fx-label">Consolida JSON</div></div>
+    <div class="fx-arr">→</div>
+    <div class="fx"><div class="fx-num">⑥</div><div class="fx-label">Calcula Score + Flags</div></div>
+    <div class="fx-arr">→</div>
+    <div class="fx fx-verde"><div class="fx-num">⑦</div><div class="fx-label">Relatório + Score ao usuário</div></div>
+  </div>
+
+  <h3>Stack tecnológico — Módulo 1 (construir agora)</h3>
+  <table>
+    <thead><tr><th>Camada</th><th>Tecnologia</th><th>Por que esta escolha</th><th>Custo</th></tr></thead>
+    <tbody>
+      <tr><td>Linguagem</td><td>Python 3.11</td><td>Mais bibliotecas para integração com APIs (Interfaces de Programação de Aplicações), comunidade enorme, fácil manutenção</td><td>R$ 0</td></tr>
+      <tr><td>Framework web</td><td>FastAPI</td><td>Mais rápido que Flask, gera documentação automática, suporta programação assíncrona nativamente</td><td>R$ 0</td></tr>
+      <tr><td>Servidor</td><td>Uvicorn</td><td>Servidor ASGI (Asynchronous Server Gateway Interface — Interface de Gateway de Servidor Assíncrono) que roda o FastAPI</td><td>R$ 0</td></tr>
+      <tr><td>Cliente HTTP</td><td>httpx</td><td>Faz chamadas assíncronas às APIs externas — todas em paralelo simultâneo</td><td>R$ 0</td></tr>
+      <tr><td>Banco de dados</td><td>SQLite → PostgreSQL</td><td>SQLite para começar (zero config), PostgreSQL quando crescer — mesmo código, troca só a conexão</td><td>R$ 0</td></tr>
+      <tr><td>Cache</td><td>JSON local → Redis</td><td>Arquivo JSON durante desenvolvimento, Redis em produção para cache de 24h por placa</td><td>R$ 0 → R$ 15/mês</td></tr>
+      <tr><td>Hospedagem</td><td>Render.com (gratuito)</td><td>Roda Python, deploy (publicação) automático via GitHub, plano gratuito suficiente para início</td><td>R$ 0</td></tr>
+      <tr><td>Versionamento</td><td>GitHub</td><td>Guarda cada versão do código, integra com Render.com para deploy automático</td><td>R$ 0</td></tr>
+    </tbody>
+  </table>
+
+  <h3>APIs (Interfaces de Programação de Aplicações) de dados integradas</h3>
+  <table>
+    <thead><tr><th>Provedor</th><th>Dados</th><th>Tipo</th><th>Custo por consulta</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Serpro/SINESP</strong> (Sistema Nacional de Informações de Segurança Pública)</td><td>Roubo, furto, Renajud (Registro Nacional de Veículos em Penhora Judicial)</td><td>Público credenciado</td><td>Baixo / gratuito</td></tr>
+      <tr><td><strong>InfoSimples</strong></td><td>IPVA, multas, restrições administrativas, Renainf (Registro Nacional de Infrações)</td><td>Privado</td><td>R$ 0,30–1,50</td></tr>
+      <tr><td><strong>ConsultaPlaca</strong></td><td>Leilão, sinistros, gravame (alienação fiduciária), indício de sinistro</td><td>Privado</td><td>R$ 0,50–2,00</td></tr>
+      <tr><td><strong>Módulo Veicular</strong></td><td>Histórico completo, Detran (Departamento Estadual de Trânsito), Denatran (Departamento Nacional de Trânsito)</td><td>Privado</td><td>R$ 0,50–1,50</td></tr>
+      <tr><td><strong>Detran estadual</strong></td><td>Dados cadastrais, CRLV (Certificado de Registro e Licenciamento de Veículo)</td><td>Público</td><td>Variável</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ═══════════ 07 — BANCO DE DADOS ═══════════ -->
+<div class="secao" id="banco">
+  <div class="secao-label">Seção 07</div>
+  <div class="secao-title">Banco de Dados</div>
+  <p class="secao-desc">Projetado para os dois módulos desde o início — mesmo que o Módulo 2 seja construído meses depois, nenhuma tabela do Módulo 1 precisa ser alterada.</p>
+
+  <table>
+    <thead><tr><th>Tabela</th><th>O que guarda</th><th>Módulo</th></tr></thead>
+    <tbody>
+      <tr><td><strong>usuarios</strong></td><td>Cadastro de lojistas, vistoriadores e peritos — com tipo e status de acesso</td><td>Ambos</td></tr>
+      <tr><td><strong>carteira_creditos</strong></td><td>Saldo em reais de cada usuário — debitado a cada serviço consumido</td><td>Ambos</td></tr>
+      <tr><td><strong>transacoes_creditos</strong></td><td>Histórico de cada débito (consulta) e crédito (recarga) para auditoria</td><td>Ambos</td></tr>
+      <tr><td><strong>consultas_historico</strong></td><td>Resultado completo de cada consulta + flags (indicadores de alerta) de cruzamento + cache TTL (Time To Live — Tempo de Vida)</td><td>Módulo 1</td></tr>
+      <tr><td><strong>laudos_cautelares</strong></td><td>Cabeçalho do laudo físico, vinculado à consulta de histórico via FK (Foreign Key — Chave Estrangeira)</td><td>Módulo 2</td></tr>
+      <tr><td><strong>laudo_itens_estruturais</strong></td><td>Checklist de ~80 itens — cada um com status OK/Apontamento/Reprovado e alerta do cruzamento</td><td>Módulo 2</td></tr>
+      <tr><td><strong>laudo_fotos</strong></td><td>URLs (Uniform Resource Locators — Endereços de Recursos Uniformes) das fotos tiradas em campo, categorizadas por módulo</td><td>Módulo 2</td></tr>
+      <tr><td><strong>mesa_analise_revisao</strong></td><td>Fila de aprovação do perito sênior — aguardando, em revisão, aprovado ou devolvido</td><td>Módulo 2</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box-azul">
+    <strong>Decisão de banco:</strong> Começamos com SQLite (banco de dados embutido, sem servidor separado, arquivo único) durante todo o desenvolvimento e fase inicial de produção. Quando ultrapassar 10.000 consultas por mês, migramos para PostgreSQL (banco de dados robusto para alto volume). A troca leva menos de 4 horas porque usamos SQLAlchemy (camada de abstração — código que isola a lógica do banco do restante do sistema) desde o início.
+  </div>
+</div>
+
+<!-- ═══════════ 08 — PLANO DE DESENVOLVIMENTO ═══════════ -->
+<div class="secao" id="desenvolvimento">
+  <div class="secao-label">Seção 08</div>
+  <div class="secao-title">Plano de Desenvolvimento</div>
+  <p class="secao-desc">10 semanas, 3 horas por dia, 18 sessões. Módulo 1 completo antes de começar o Módulo 2. Código 100% comentado para facilitar aprendizado e manutenção.</p>
+
+  <div class="grid-4" style="margin-bottom:32px;">
+    <div class="card"><div class="big-num" style="font-size:36px;">5</div><div class="num-label">Fases</div><p>Cada fase com objetivo claro e marco de validação antes de avançar.</p></div>
+    <div class="card card-laranja"><div class="big-num" style="font-size:36px;">18</div><div class="num-label">Sessões de ~3h</div><p>Blocos de trabalho produtivo com início, meio e fim definidos.</p></div>
+    <div class="card"><div class="big-num" style="font-size:36px;">10</div><div class="num-label">Semanas estimadas</div><p>Considerando 3 horas por dia, 5 dias por semana, sem fins de semana obrigatórios.</p></div>
+    <div class="card card-verde"><div class="big-num" style="font-size:36px;">R$ 0</div><div class="num-label">Custo até o MVP (Minimum Viable Product — Produto Mínimo Viável)</div><p>Todo desenvolvimento e testes em sandbox (ambiente simulado) gratuitos.</p></div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot">0</div>
+    <div class="tl-body">
+      <div class="tl-titulo">Fase 0 — Setup e Ambiente (Semana 1)</div>
+      <div class="tl-periodo">2 sessões · R$ 0</div>
+      <div class="tl-itens"><ul>
+        <li>WSL2 (Windows Subsystem for Linux — Subsistema Windows para Linux) instalado e configurado no Windows</li>
+        <li>Python 3.11 + pip (gerenciador de pacotes do Python) + venv (virtual environment — ambiente virtual isolado)</li>
+        <li>VS Code (Visual Studio Code — editor de código gratuito da Microsoft) com extensão WSL</li>
+        <li>GitHub configurado com repositório do projeto</li>
+        <li>Estrutura de pastas do projeto criada</li>
+      </ul></div>
+      <span class="tl-custo">Marco: VS Code abrindo os arquivos do projeto no WSL2</span>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot">1</div>
+    <div class="tl-body">
+      <div class="tl-titulo">Fase 1 — Backend Base com FastAPI (Semanas 2–3)</div>
+      <div class="tl-periodo">3 sessões · R$ 0</div>
+      <div class="tl-itens"><ul>
+        <li>API (Interface de Programação de Aplicações) respondendo em localhost (endereço local da máquina) com FastAPI</li>
+        <li>Validação de placa Mercosul e chassi VIN (Vehicle Identification Number)</li>
+        <li>Arquivo .env com chaves de API protegidas do GitHub</li>
+        <li>Deploy (publicação) no Render.com — API acessível na internet de graça</li>
+      </ul></div>
+      <span class="tl-custo">Marco: acessar a URL pública do Render.com e ver a API respondendo</span>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot">2</div>
+    <div class="tl-body">
+      <div class="tl-titulo">Fase 2 — Integrações com APIs de Dados (Semanas 4–6)</div>
+      <div class="tl-periodo">5 sessões · R$ 0 (sandbox gratuito)</div>
+      <div class="tl-itens"><ul>
+        <li>InfoSimples integrado (débitos, multas, IPVA) — sandbox gratuito</li>
+        <li>ConsultaPlaca integrado (leilão, sinistros, gravame) — sandbox gratuito</li>
+        <li>Serpro/SINESP integrado (roubo, furto, Renajud) — sandbox gratuito</li>
+        <li>Orquestrador assíncrono: todas as APIs em paralelo com asyncio.gather (função Python que executa múltiplas tarefas simultaneamente) — resposta abaixo de 5 segundos</li>
+      </ul></div>
+      <span class="tl-custo">Marco: consulta retornando JSON (JavaScript Object Notation — formato de troca de dados) consolidado de todas as APIs</span>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot">3</div>
+    <div class="tl-body">
+      <div class="tl-titulo">Fase 3 — Motor de Análise e Score (Semanas 7–8)</div>
+      <div class="tl-periodo">4 sessões · R$ 0</div>
+      <div class="tl-itens"><ul>
+        <li>Regras de negócio em Python puro para Score Verde/Amarelo/Vermelho</li>
+        <li>Geração das flags (indicadores de alerta) de cruzamento para o Módulo 2</li>
+        <li>Análise textual em linguagem natural via motor externo</li>
+        <li>Disclaimer (aviso de responsabilidade) automático com data e hora da consulta</li>
+      </ul></div>
+      <span class="tl-custo">Marco: score calculado e relatório textual gerado automaticamente</span>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <div class="tl-dot">4</div>
+    <div class="tl-body">
+      <div class="tl-titulo">Fase 4 — Armazenamento e Validação (Semanas 9–10)</div>
+      <div class="tl-periodo">4 sessões · R$ 80–150 (primeiros créditos reais)</div>
+      <div class="tl-itens"><ul>
+        <li>Storage (armazenamento) em JSON local — já estruturado para migrar para SQLite/PostgreSQL</li>
+        <li>Cache de 24h por placa — evita cobrar o cliente duas vezes</li>
+        <li>Testes com ~50 placas reais para validar dados e calibrar score</li>
+        <li>Checklist de validação: tempo de resposta, campos do JSON, cache, disclaimer</li>
+      </ul></div>
+      <span class="tl-custo">Marco: placa real retornando relatório completo com score em menos de 5 segundos</span>
+    </div>
+  </div>
+
+  <div class="box-laranja" style="margin-top:8px;">
+    <strong>Ambiente de desenvolvimento:</strong> Windows com WSL2 (subsistema Linux gratuito da Microsoft) + VS Code + Python. GitHub para versionamento (controle de versões do código). Render.com para hospedagem gratuita. Durante todo o desenvolvimento, as APIs de dados usam sandbox (ambiente de simulação gratuito dos provedores) — o primeiro gasto real é na Fase 4, quando testamos com placas reais.
+  </div>
+</div>
+
+<!-- ═══════════ 09 — COMERCIAL ═══════════ -->
+<div class="secao" id="comercial">
+  <div class="secao-label">Seção 09</div>
+  <div class="secao-title">Estratégia Comercial</div>
+  <p class="secao-desc">Como vender, para quem vender e em qual ordem — priorizando os canais de menor custo de aquisição e maior ticket médio (valor médio por venda).</p>
+
+  <h3>Segmentos prioritários</h3>
+  <div class="grid-3" style="margin-bottom:28px;">
+    <div class="card card-laranja">
+      <div class="card-icon">🏪</div>
+      <div class="card-titulo">Micro-revendas e despachantes (prioridade 1)</div>
+      <p>~200.000 lojas de usados no Brasil (Fenauto). 70% são micro e pequenas sem acesso a ferramentas de consulta por custo. Volume médio de 15–50 consultas por mês. CAC (Custo de Aquisição de Cliente) estimado de R$ 35–80. LTV (Lifetime Value — Valor Total Gerado pelo Cliente) de R$ 1.080–3.600 por loja por ano.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">👤</div>
+      <div class="card-titulo">Compradores individuais B2C (Business to Consumer) (prioridade 2)</div>
+      <p>Pessoa física que compra 1–2 carros por ano. Paga R$ 9,90 por consulta avulsa. Hoje paga R$ 15–50 nos concorrentes, sem análise interpretativa. CAC baixo via tráfego orgânico (visitas vindas de busca natural no Google) e indicação.</p>
+    </div>
+    <div class="card card-azul">
+      <div class="card-icon">🏢</div>
+      <div class="card-titulo">Seguradoras e financeiras (prioridade 3 — longo prazo)</div>
+      <p>Modelo de franquia de dados — a seguradora integra a API (Interface de Programação de Aplicações) do Fox Check no próprio sistema de avaliação de risco. Volume alto, contrato mensal fixo, sem custo de aquisição por cliente.</p>
+    </div>
+  </div>
+
+  <h3>Abordagem de vendas por fase</h3>
+  <table>
+    <thead><tr><th>Fase</th><th>Canal</th><th>Abordagem</th><th>Meta</th></tr></thead>
+    <tbody>
+      <tr><td>Meses 1–3</td><td>Prospecção direta</td><td>Contato pessoal com revendas locais de Belo Horizonte — demonstração ao vivo do sistema</td><td>10–20 lojas no plano básico</td></tr>
+      <tr><td>Meses 3–6</td><td>Google Ads (plataforma de anúncios do Google) + indicação</td><td>Anúncios para "consulta veicular barata" e "histórico de carro usado" — compradores PF (Pessoa Física)</td><td>100+ consultas avulsas por mês</td></tr>
+      <tr><td>Meses 6–12</td><td>Parcerias com despachantes</td><td>Modelo de revenda: despachante cobra do cliente e repassa ao Fox Check com desconto de volume</td><td>30+ clientes B2B (Business to Business) ativos</td></tr>
+      <tr><td>Ano 2</td><td>API pública + whitelabel</td><td>Parceiros integram o Fox Check no próprio sistema com marca própria — Fox Check cobra por consulta no backend</td><td>5+ parceiros de integração</td></tr>
+    </tbody>
+  </table>
+
+  <div class="destaque">
+    <h3>Proposta de valor por segmento</h3>
+    <p>Para o <strong>comprador individual:</strong> "Antes de gastar R$ 30.000 em um carro usado, gaste R$ 9,90 e saiba tudo sobre ele em 10 segundos." Para a <strong>revenda:</strong> "Consulte o histórico de qualquer veículo que entra no seu pátio por R$ 5,98 — menos que um cafezinho. Evite comprar problema." Para o <strong>investidor:</strong> "Cada R$ 1 investido na aquisição de um cliente retorna entre R$ 13 e R$ 50 ao longo de 12 meses."</p>
+  </div>
+</div>
+
+<!-- ═══════════ 10 — FINANCEIRO ═══════════ -->
+<div class="secao" id="financeiro">
+  <div class="secao-label">Seção 10</div>
+  <div class="secao-title">Modelo Financeiro</div>
+  <p class="secao-desc">Números reais — sem inflação. Custo de entrada de R$ 417 (domínio + primeiros créditos de teste). Break-even (ponto de equilíbrio financeiro — momento em que a receita iguala os custos) no mês 6.</p>
+
+  <h3>Custo por consulta — transparência total</h3>
+  <table>
+    <thead><tr><th>Item de custo</th><th>Valor unitário</th><th>Tipo</th></tr></thead>
+    <tbody>
+      <tr><td>APIs de dados (InfoSimples + ConsultaPlaca + Serpro)</td><td>R$ 2,00–3,00</td><td>Variável — só paga quando há consulta</td></tr>
+      <tr><td>Motor de análise (processamento do score e relatório)</td><td>R$ 0,03–0,06</td><td>Variável — menos de 5% do custo total</td></tr>
+      <tr><td>Hospedagem rateada por consulta</td><td>R$ 0,10–0,30</td><td>Fixo rateado — R$ 42/mês total</td></tr>
+      <tr style="background:var(--laranja-bg);"><td><strong>Total de custo por consulta</strong></td><td><strong>~R$ 2,75</strong></td><td>Média calculada</td></tr>
+      <tr style="background:var(--verde-bg);"><td><strong>Preço cobrado (avulso B2C)</strong></td><td><strong style="color:var(--verde);">R$ 9,90</strong></td><td><strong style="color:var(--verde);">Margem de ~R$ 7,15 (260%)</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Custos até entrar em produção</h3>
+  <table>
+    <thead><tr><th>Item</th><th>Fase</th><th>Custo</th></tr></thead>
+    <tbody>
+      <tr><td>Hospedagem Render.com durante desenvolvimento</td><td>Meses 1–4</td><td style="color:var(--verde);font-weight:700;">R$ 0 — plano gratuito</td></tr>
+      <tr><td>APIs com sandbox (ambiente simulado gratuito) durante desenvolvimento</td><td>Meses 1–3</td><td style="color:var(--verde);font-weight:700;">R$ 0 — gratuito</td></tr>
+      <tr><td>Créditos InfoSimples (~40 consultas de validação real)</td><td>Mês 3–4</td><td>R$ 60</td></tr>
+      <tr><td>Créditos ConsultaPlaca (~40 consultas de validação real)</td><td>Mês 3–4</td><td>R$ 80</td></tr>
+      <tr><td>Motor de análise (~100 análises de teste)</td><td>Mês 2–4</td><td>R$ 20</td></tr>
+      <tr><td>Domínio foxcheck.com.br no Registro.br (órgão oficial brasileiro de registro de domínios)</td><td>Mês 4</td><td>R$ 40/ano</td></tr>
+      <tr><td>Hospedagem Railway.app — 1º mês em produção</td><td>Mês 4</td><td>R$ 42</td></tr>
+      <tr><td>Redis (banco de dados em memória para cache) — 1º mês</td><td>Mês 4</td><td>R$ 15</td></tr>
+      <tr><td>Reserva para imprevistos</td><td>Mês 3–4</td><td>R$ 100</td></tr>
+      <tr style="background:var(--verde-bg);"><td><strong>Total até entrar em produção</strong></td><td><strong>4 meses</strong></td><td><strong style="color:var(--verde);">R$ 417</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Projeção de receita — cenário conservador</h3>
+  <table>
+    <thead><tr><th>Período</th><th>Clientes B2B</th><th>Consultas/mês</th><th>Receita mensal</th><th>Lucro bruto</th></tr></thead>
+    <tbody>
+      <tr><td>Mês 1–2 (MVP)</td><td>0–2</td><td>50–150</td><td>R$ 500–1.400</td><td style="color:#d97706;font-weight:600;">Ponto de equilíbrio</td></tr>
+      <tr><td>Mês 3–4</td><td>5–10</td><td>300–600</td><td>R$ 2.800–5.600</td><td style="color:var(--verde);font-weight:600;">R$ 1.900–3.900</td></tr>
+      <tr><td>Mês 6 (break-even)</td><td>20–30</td><td>1.200–1.800</td><td>R$ 9.000–14.000</td><td style="color:var(--verde);font-weight:600;">R$ 5.500–8.800</td></tr>
+      <tr><td>Ano 1 (mês 12)</td><td>80–120</td><td>5.000–8.000</td><td>R$ 35.000–60.000</td><td style="color:var(--verde);font-weight:600;">R$ 21.000–38.000</td></tr>
+      <tr><td>Ano 2</td><td>300–500</td><td>20.000–35.000</td><td>R$ 130.000–200.000</td><td style="color:var(--verde);font-weight:600;">R$ 72.000–110.000</td></tr>
+      <tr><td>Ano 3</td><td>800–1.200</td><td>60.000–100.000</td><td>R$ 350.000–550.000</td><td style="color:var(--verde);font-weight:600;">R$ 180.000–270.000</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Métricas unitárias (KPIs — Key Performance Indicators, Indicadores-Chave de Desempenho)</h3>
+  <div class="grid-3">
+    <div class="card card-laranja">
+      <div class="card-titulo">CAC (Custo de Aquisição de Cliente)</div>
+      <div class="big-num" style="font-size:32px;">R$ 35–80</div>
+      <p>Por cliente B2B (Business to Business — loja). Inclui tempo de prospecção e onboarding (processo de integração do cliente no sistema).</p>
+    </div>
+    <div class="card card-verde">
+      <div class="card-titulo">LTV (Lifetime Value — Valor Total por Cliente)</div>
+      <div class="big-num" style="font-size:32px;">R$ 1.080–3.600</div>
+      <p>Por loja no Plano Básico em 12 meses. R$ 299/mês × 12 meses de retenção média estimada.</p>
+    </div>
+    <div class="card card-preto">
+      <div class="card-titulo">LTV/CAC (razão entre valor gerado e custo de aquisição)</div>
+      <div class="big-num" style="font-size:32px;">13×–50×</div>
+      <p style="color:rgba(255,255,255,.6);">Muito acima do benchmark (referência) do mercado de 3×. Para cada R$ 1 investido em aquisição, o modelo retorna entre R$ 13 e R$ 50.</p>
+    </div>
+  </div>
+
+  <h3>Dashboard de KPIs (Indicadores-Chave de Desempenho) — painel para investidores</h3>
+  <div class="kpi-grid">
+    <div class="kpi"><div class="kpi-label">Volume de Consultas</div><div class="kpi-valor">consultas/mês</div><div class="kpi-desc">Principal indicador de crescimento. Meta: dobrar a cada trimestre no Ano 1.</div></div>
+    <div class="kpi"><div class="kpi-label">MRR (Monthly Recurring Revenue — Receita Recorrente Mensal)</div><div class="kpi-valor">R$ recorrente</div><div class="kpi-desc">Soma das assinaturas ativas. Cresce com cada nova loja aderindo ao plano mensal.</div></div>
+    <div class="kpi"><div class="kpi-label">Taxa de Recorrência</div><div class="kpi-valor">% retorno 30d</div><div class="kpi-desc">Clientes que voltam em 30 dias. Meta: acima de 60% para clientes B2B.</div></div>
+    <div class="kpi"><div class="kpi-label">Custo por Consulta</div><div class="kpi-valor">R$/consulta</div><div class="kpi-desc">Deve cair com o volume — cache Redis (banco de dados em memória) reduz chamadas repetidas às APIs.</div></div>
+    <div class="kpi"><div class="kpi-label">Churn Rate (Taxa de Cancelamento)</div><div class="kpi-valor">% cancelamento</div><div class="kpi-desc">Meta: abaixo de 5% ao mês. Alta retenção é o principal driver (motor) de crescimento do LTV.</div></div>
+    <div class="kpi"><div class="kpi-label">Margem Bruta</div><div class="kpi-valor">% por consulta</div><div class="kpi-desc">Receita menos custo variável das APIs. Meta: manter acima de 65% mesmo com crescimento de volume.</div></div>
+  </div>
+</div>
+
+<!-- ═══════════ 11 — JURÍDICO ═══════════ -->
+<div class="secao" id="juridico">
+  <div class="secao-label">Seção 11</div>
+  <div class="secao-title">Responsabilidade Jurídica</div>
+  <p class="secao-desc">O Fox Check opera como agregador de dados — modelo juridicamente equivalente ao Serasa e ao SPC (Serviço de Proteção ao Crédito). A responsabilidade pela veracidade dos dados é dos órgãos emissores, não da plataforma.</p>
+
+  <div class="box-azul">
+    <strong>Posicionamento legal:</strong> O Fox Check não produz dados veiculares — ele os agrega de fontes oficiais (Serpro, Detran, InfoSimples, ConsultaPlaca) e os apresenta organizados. Amparado pelo art. 14, §3º, II do CDC (Código de Defesa do Consumidor — Lei nº 8.078/1990) e pelo art. 944 do Código Civil (Lei nº 10.406/2002).
+  </div>
+
+  <h3>Matriz de responsabilidade</h3>
+  <table>
+    <thead><tr><th>Situação</th><th>Responsabilidade Fox Check</th><th>Fundamento legal</th></tr></thead>
+    <tbody>
+      <tr><td>Dado correto na base, problema não registrado pelo órgão emissor</td><td style="color:var(--verde);font-weight:600;">Nenhuma</td><td>Responsabilidade do órgão emissor (Detran, Serpro etc.)</td></tr>
+      <tr><td>Dado desatualizado por atraso do provedor externo</td><td style="color:var(--verde);font-weight:600;">Nenhuma</td><td>Fato de terceiro / força maior</td></tr>
+      <tr><td>Usuário ignorou score Amarelo e comprou o veículo assim mesmo</td><td style="color:var(--verde);font-weight:600;">Nenhuma</td><td>Culpa exclusiva do consumidor — art. 14, §3º, II do CDC</td></tr>
+      <tr><td>Erro interno de processamento (bug — erro no código da plataforma)</td><td style="color:#d97706;font-weight:600;">Limitada ao valor pago pela consulta</td><td>Art. 944 do CC (Código Civil) — proporcionalidade</td></tr>
+      <tr><td>Vazamento de dados pessoais por falha de segurança</td><td style="color:var(--vermelho);font-weight:600;">Integral — conforme LGPD</td><td>Art. 42 da LGPD (Lei Geral de Proteção de Dados — Lei nº 13.709/2018)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Disclaimer obrigatório em todo relatório</h3>
+  <div style="background:var(--cinza-bg);border:1px solid var(--cinza-bd);border-radius:10px;padding:20px 24px;font-size:13px;font-style:italic;color:var(--cinza-txt);line-height:1.7;">
+    "As informações constantes neste relatório refletem os dados disponíveis nas fontes oficiais consultadas na data e hora indicadas. O Fox Check atua como agregador de dados de terceiros e não se responsabiliza por informações não registradas, desatualizadas ou incorretas nas bases de dados de origem. Este relatório constitui ferramenta de auxílio à decisão e não substitui vistoria física, consulta direta aos órgãos públicos ou avaliação jurídica especializada. A decisão de aquisição do veículo é de responsabilidade exclusiva do comprador."
+  </div>
+
+  <div class="box-laranja" style="margin-top:20px;">
+    <strong>Prazo de validade do relatório:</strong> O cache (armazenamento temporário) tem TTL (Time To Live — Tempo de Vida) de 24 horas. Após este prazo, uma nova consulta busca dados frescos nas APIs. O relatório informa explicitamente a data e hora de cada consulta realizada — o usuário sempre sabe que está vendo uma "fotografia" daquele momento, não uma situação em tempo real permanente.
+  </div>
+
+  <div class="sep"></div>
+
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-titulo">Legislação aplicável</div>
+      <ul style="font-size:12px;">
+        <li><strong>CDC</strong> (Código de Defesa do Consumidor) — Lei nº 8.078/1990</li>
+        <li><strong>CC</strong> (Código Civil Brasileiro) — Lei nº 10.406/2002</li>
+        <li><strong>LGPD</strong> (Lei Geral de Proteção de Dados Pessoais) — Lei nº 13.709/2018</li>
+        <li><strong>Marco Civil</strong> da Internet — Lei nº 12.965/2014</li>
+      </ul>
+    </div>
+    <div class="card card-verde">
+      <div class="card-titulo">O que nos protege</div>
+      <ul style="font-size:12px;">
+        <li>Termos de uso com limitação de responsabilidade</li>
+        <li>Disclaimer (aviso legal) em cada relatório gerado</li>
+        <li>Score como "auxílio à decisão", não garantia</li>
+        <li>Data e hora da consulta em destaque no relatório</li>
+      </ul>
+    </div>
+    <div class="card card-verm">
+      <div class="card-titulo">O que devemos evitar</div>
+      <ul style="font-size:12px;">
+        <li>Usar a palavra "garantia" em qualquer material</li>
+        <li>Prometer ausência total de vícios ocultos</li>
+        <li>Armazenar senhas em texto puro (não criptografado)</li>
+        <li>Coletar mais dados pessoais que o necessário</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- RODAPÉ -->
+<div class="rodape">
+  <strong>Fox Check</strong> · Documento Mestre do Ecossistema · Versão 1.0 · Junho de 2026<br>
+  Documento confidencial preparado para revisão com sócios e investidores. Proibida reprodução sem autorização.<br><br>
+  <span style="font-size:10px;opacity:.6;">
+    API = Application Programming Interface (Interface de Programação de Aplicações) ·
+    B2B = Business to Business (Venda para Empresas) ·
+    B2C = Business to Consumer (Venda Direta ao Consumidor) ·
+    CAC = Custo de Aquisição de Cliente ·
+    CDC = Código de Defesa do Consumidor ·
+    CRLV = Certificado de Registro e Licenciamento de Veículo ·
+    DPVAT = Danos Pessoais Causados por Veículos Automotores de Vias Terrestres ·
+    FAQ = Frequently Asked Questions (Perguntas Frequentes) ·
+    FK = Foreign Key (Chave Estrangeira) ·
+    HTML = HyperText Markup Language (Linguagem de Marcação de Hipertexto) ·
+    IPVA = Imposto sobre a Propriedade de Veículos Automotores ·
+    JSON = JavaScript Object Notation (Notação de Objetos JavaScript — formato de troca de dados) ·
+    KPI = Key Performance Indicator (Indicador-Chave de Desempenho) ·
+    LGPD = Lei Geral de Proteção de Dados Pessoais ·
+    LTV = Lifetime Value (Valor Total Gerado pelo Cliente ao Longo do Tempo) ·
+    MRR = Monthly Recurring Revenue (Receita Recorrente Mensal) ·
+    MVP = Minimum Viable Product (Produto Mínimo Viável) ·
+    PDF = Portable Document Format (Formato de Documento Portátil) ·
+    PIX = Sistema de Pagamento Instantâneo do Banco Central do Brasil ·
+    QR Code = Quick Response Code (Código de Resposta Rápida) ·
+    Renajud = Registro Nacional de Veículos Automotores em Penhora Judicial ·
+    Renavam = Registro Nacional de Veículos Automotores ·
+    SINESP = Sistema Nacional de Informações de Segurança Pública ·
+    SQL = Structured Query Language (Linguagem de Consulta Estruturada) ·
+    SVG = Scalable Vector Graphics (Gráficos Vetoriais Escaláveis) ·
+    TAM = Total Addressable Market (Mercado Total Endereçável) ·
+    TTL = Time To Live (Tempo de Vida do Cache) ·
+    URL = Uniform Resource Locator (Endereço de Recurso Uniforme) ·
+    VIN = Vehicle Identification Number (Número de Identificação do Veículo) ·
+    VIS = Vehicle Identification System (Sistema de Identificação do Veículo) ·
+    WSL2 = Windows Subsystem for Linux versão 2 (Subsistema Windows para Linux)
+  </span>
+</div>
+
+</div><!-- /main -->
+</body>
+</html>

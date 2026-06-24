@@ -1,29 +1,30 @@
 <!DOCTYPE html>
-<!-- Gerado em: 24/06/2026 14:15 -->
+<!-- Gerado em: 24/06/2026 15:32 -->
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Edifício Terrazi — Prestação de Contas</title>
+<title>Edifício Terrazi — Prestação de Contas 06/2026</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
-    --roxo-900: #1a0533;
-    --roxo-800: #2d1b69;
-    --roxo-700: #4c1d95;
-    --roxo-600: #6d28d9;
-    --roxo-400: #a78bfa;
-    --roxo-200: #ddd6fe;
-    --roxo-100: #ede9fe;
-    --dourado:  #f59e0b;
+    --roxo-900:  #1a0533;
+    --roxo-800:  #2d1b69;
+    --roxo-700:  #4c1d95;
+    --roxo-600:  #6d28d9;
+    --roxo-400:  #a78bfa;
+    --roxo-200:  #ddd6fe;
+    --roxo-100:  #ede9fe;
+    --dourado:   #f59e0b;
     --dourado-claro: #fef3c7;
-    --verde:    #10b981;
-    --vermelho: #ef4444;
-    --branco:   #ffffff;
-    --cinza-100: #f8fafc;
+    --verde:     #10b981;
+    --vermelho:  #f87171;
+    --amarelo:   #fbbf24;
+    --branco:    #ffffff;
+    --texto-suave: #e2d5ff;
   }
 
   body {
@@ -31,10 +32,8 @@
     background: var(--roxo-900);
     color: var(--branco);
     min-height: 100vh;
-    padding: 0;
   }
 
-  /* ── PÁGINA ── */
   .pagina {
     max-width: 900px;
     margin: 0 auto;
@@ -44,20 +43,17 @@
   /* ── HEADER ── */
   .header {
     text-align: center;
-    margin-bottom: 40px;
-    position: relative;
+    margin-bottom: 36px;
   }
-
   .header::after {
     content: '';
     display: block;
     width: 80px;
     height: 3px;
     background: linear-gradient(90deg, var(--roxo-600), var(--dourado));
-    margin: 20px auto 0;
+    margin: 18px auto 0;
     border-radius: 2px;
   }
-
   .header-eyebrow {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 11px;
@@ -65,9 +61,8 @@
     letter-spacing: 3px;
     text-transform: uppercase;
     color: var(--dourado);
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
-
   .header-titulo {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 42px;
@@ -76,26 +71,11 @@
     line-height: 1.1;
     letter-spacing: -1px;
   }
+  .header-titulo span { color: var(--dourado); }
+  .header-sub   { font-size: 15px; color: var(--texto-suave); margin-top: 8px; }
+  .header-gerado { font-size: 11px; color: #6d5a8a; margin-top: 4px; font-style: italic; }
 
-  .header-titulo span {
-    color: var(--dourado);
-  }
-
-  .header-sub {
-    font-size: 15px;
-    color: var(--roxo-400);
-    margin-top: 10px;
-    font-weight: 400;
-  }
-
-  .header-gerado {
-    font-size: 11px;
-    color: #6d5a8a;
-    margin-top: 6px;
-    font-style: italic;
-  }
-
-  /* ── CARDS DE RESUMO ── */
+  /* ── SEÇÃO ── */
   .secao-titulo {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 11px;
@@ -103,26 +83,24 @@
     letter-spacing: 3px;
     text-transform: uppercase;
     color: var(--dourado);
-    margin-bottom: 16px;
+    margin-bottom: 14px;
   }
 
+  /* ── CARDS RESUMO ── */
   .cards-resumo {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
-    margin-bottom: 40px;
+    margin-bottom: 36px;
   }
-
   .card-resumo {
-    background: linear-gradient(135deg, var(--roxo-800) 0%, #3d1f7a 100%);
+    background: linear-gradient(135deg, var(--roxo-800), #3d1f7a);
     border: 1px solid #4c2d8a;
     border-radius: 16px;
-    padding: 24px 20px;
+    padding: 22px 18px;
     position: relative;
     overflow: hidden;
-    transition: transform 0.2s;
   }
-
   .card-resumo::before {
     content: '';
     position: absolute;
@@ -131,390 +109,519 @@
     background: linear-gradient(90deg, var(--roxo-600), var(--roxo-400));
     border-radius: 16px 16px 0 0;
   }
-
+  .card-resumo.destaque {
+    background: linear-gradient(135deg, #3b1f02, #4a2a05);
+    border-color: #8a5a0a;
+  }
   .card-resumo.destaque::before {
     background: linear-gradient(90deg, var(--dourado), #fbbf24);
   }
+  .card-icone   { font-size: 22px; margin-bottom: 10px; display: block; }
+  .card-label   { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--dourado); margin-bottom: 6px; }
+  .card-valor   { font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 700; color: var(--branco); }
+  .card-resumo.destaque .card-valor { color: var(--dourado); }
+  .card-detalhe { font-size: 10px; color: #6d5a8a; margin-top: 5px; }
+  .card-resumo.destaque .card-detalhe { color: #a07830; }
 
-  .card-resumo.destaque {
-    background: linear-gradient(135deg, #3b1f02 0%, #4a2a05 100%);
-    border-color: #8a5a0a;
+  /* ── FLUXO ── */
+  .fluxo-box {
+    background: linear-gradient(135deg, var(--roxo-800), #2a1560);
+    border: 1px solid #4c2d8a;
+    border-radius: 16px;
+    padding: 22px;
+    margin-bottom: 36px;
   }
-
-  .card-icone {
-    font-size: 22px;
-    margin-bottom: 12px;
-    display: block;
+  .fluxo-linha {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 9px 0;
+    border-bottom: 1px solid #3d2070;
+    font-size: 13px;
   }
-
-  .card-label {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--roxo-400);
-    margin-bottom: 8px;
-  }
-
-  .card-resumo.destaque .card-label {
-    color: #fbbf24;
-  }
-
-  .card-valor {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 26px;
-    font-weight: 700;
-    color: var(--branco);
-    letter-spacing: -0.5px;
-  }
-
-  .card-resumo.destaque .card-valor {
-    color: var(--dourado);
-  }
-
-  .card-detalhe {
-    font-size: 11px;
-    color: #6d5a8a;
-    margin-top: 6px;
-  }
-
-  .card-resumo.destaque .card-detalhe {
-    color: #a07830;
-  }
+  .fluxo-linha:last-child { border-bottom: none; }
+  .fluxo-linha-label { color: var(--texto-suave); font-weight: 500; }
+  .fluxo-linha-valor { font-family: 'Space Grotesk', sans-serif; font-weight: 600; color: var(--branco); }
+  .fluxo-linha.neg .fluxo-linha-valor { color: var(--vermelho); }
+  .fluxo-linha.pos .fluxo-linha-valor { color: var(--verde); }
+  .fluxo-linha.res .fluxo-linha-label { color: var(--dourado); font-weight: 700; }
+  .fluxo-linha.res .fluxo-linha-valor { color: var(--dourado); font-size: 15px; }
+  .fluxo-linha.apa .fluxo-linha-valor { color: var(--amarelo); }
 
   /* ── SEPARADOR ── */
   .separador {
     display: flex;
     align-items: center;
     gap: 16px;
-    margin: 32px 0 24px;
+    margin: 32px 0 20px;
   }
+  .separador-linha { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, #4c2d8a, transparent); }
+  .separador-texto { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--dourado); white-space: nowrap; }
 
-  .separador-linha {
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, #4c2d8a, transparent);
-  }
-
-  .separador-texto {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--dourado);
-    white-space: nowrap;
-  }
-
-  /* ── CARDS DE UNIDADES ── */
+  /* ── CARDS UNIDADES ── */
   .grid-unidades {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 12px;
-    margin-bottom: 40px;
+    margin-bottom: 36px;
   }
-
   .card-unidade {
-    background: linear-gradient(160deg, var(--roxo-800) 0%, #2a1560 100%);
+    background: linear-gradient(160deg, var(--roxo-800), #2a1560);
     border: 1px solid #4c2d8a;
     border-radius: 14px;
     overflow: hidden;
   }
-
   .card-unidade-header {
     background: linear-gradient(135deg, var(--roxo-700), var(--roxo-600));
-    padding: 12px 16px;
+    padding: 12px;
     text-align: center;
   }
-
-  .card-unidade-apt {
+  .card-unidade-num {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
     color: var(--dourado);
     letter-spacing: 1px;
   }
-
-  .card-unidade-body {
-    padding: 12px 16px;
-  }
-
+  .card-unidade-body { padding: 10px 12px; }
   .card-linha {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 6px 0;
+    padding: 5px 0;
     border-bottom: 1px solid #3d2070;
   }
+  .card-linha:last-child { border-bottom: none; padding-top: 8px; }
+  .card-linha-label { font-size: 9px; color: var(--texto-suave); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
+  .card-linha-valor { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 600; color: var(--branco); }
+  .card-linha.total .card-linha-label { color: var(--dourado); font-size: 10px; font-weight: 700; }
+  .card-linha.total .card-linha-valor { color: var(--dourado); font-size: 13px; font-weight: 700; }
 
-  .card-linha:last-child {
-    border-bottom: none;
-    padding-top: 10px;
-    margin-top: 4px;
-  }
-
-  .card-linha-label {
-    font-size: 10px;
-    color: #e2d5ff;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-
-  .card-linha-valor {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--branco);
-  }
-
-  .card-linha.total .card-linha-label {
-    color: var(--dourado);
-    font-size: 11px;
-    font-weight: 700;
-  }
-
-  .card-linha.total .card-linha-valor {
-    color: var(--dourado);
-    font-size: 14px;
-    font-weight: 700;
-  }
-
-  /* ── FLUXO MINI ── */
-  .fluxo-mini {
-    background: linear-gradient(135deg, var(--roxo-800), #2a1560);
-    border: 1px solid #4c2d8a;
-    border-radius: 16px;
-    padding: 24px;
-    margin-bottom: 32px;
-  }
-
-  .fluxo-linha {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid #3d2070;
+  /* ── TABELAS ── */
+  .tabela {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 28px;
     font-size: 13px;
   }
+  .tabela thead tr { background: var(--roxo-700); }
+  .tabela thead th {
+    padding: 11px 14px;
+    text-align: left;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--branco);
+  }
+  .tabela thead th.dir { text-align: right; }
+  .tabela thead th.cen { text-align: center; }
+  .tabela tbody tr { border-bottom: 1px solid #3d2070; }
+  .tabela tbody tr:nth-child(even) { background: rgba(76,29,149,0.2); }
+  .tabela tbody td { padding: 9px 14px; color: var(--texto-suave); vertical-align: middle; }
+  .tabela tbody td.dir { text-align: right; font-family: 'Space Grotesk', sans-serif; }
+  .tabela tbody td.cen { text-align: center; }
+  .tabela tbody tr.nr td { color: #6d5a8a; font-style: italic; }
+  .tabela tbody tr.pend td { color: var(--amarelo); font-style: italic; }
+  .tabela tbody tr.tot td { background: var(--roxo-700); color: var(--branco); font-weight: 700; font-family: 'Space Grotesk', sans-serif; }
+  .tabela tbody tr.tot.gold td { background: #3b1f02; color: var(--dourado); }
+  .tabela tbody tr.sub td { background: rgba(76,29,149,0.35); color: #ddd6fe; font-style: italic; font-size: 12px; }
 
-  .fluxo-linha:last-child { border-bottom: none; }
+  .badge-nr   { display: inline-block; background: #3d2070; color: #a78bfa; font-size: 9px; font-weight: 700; padding: 2px 5px; border-radius: 4px; margin-left: 5px; }
+  .badge-pend { display: inline-block; background: #3b2a00; color: var(--amarelo); font-size: 9px; font-weight: 700; padding: 2px 5px; border-radius: 4px; margin-left: 5px; }
 
-  .fluxo-linha-label { color: #e2d5ff; font-weight: 500; }
-  .fluxo-linha-valor { font-family: 'Space Grotesk', sans-serif; font-weight: 600; color: var(--branco); }
-  .fluxo-linha.negativo .fluxo-linha-valor { color: #f87171; }
-  .fluxo-linha.positivo .fluxo-linha-valor { color: var(--verde); }
-  .fluxo-linha.resultado .fluxo-linha-label { color: var(--dourado); font-size: 14px; font-weight: 700; }
-  .fluxo-linha.resultado .fluxo-linha-valor { color: var(--dourado); font-size: 16px; font-weight: 700; }
-  .fluxo-linha.apagar .fluxo-linha-valor { color: #fbbf24; }
+  /* ── INFO BOX ── */
+  .info-box {
+    background: linear-gradient(135deg, var(--roxo-800), #2a1560);
+    border: 1px solid #4c2d8a;
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+  .info-item { flex: 1; min-width: 130px; }
+  .info-item-label { font-size: 10px; color: var(--dourado); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-bottom: 4px; }
+  .info-item-valor { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: var(--branco); }
 
   /* ── RODAPÉ ── */
   .rodape {
     text-align: center;
-    padding: 24px 0 8px;
+    padding: 20px 0 6px;
     border-top: 1px solid #3d2070;
   }
+  .rodape-texto  { font-size: 11px; color: #6d5a8a; font-style: italic; }
+  .rodape-legenda { display: flex; justify-content: center; gap: 20px; margin-top: 8px; font-size: 10px; color: #6d5a8a; flex-wrap: wrap; }
 
-  .rodape-texto {
-    font-size: 11px;
-    color: #6d5a8a;
-    font-style: italic;
-  }
+  /* ── QUEBRA DE PÁGINA ── */
+  .pagina-break { page-break-before: always; break-before: page; }
+  @media screen { .pagina-break { border-top: 2px dashed #4c2d8a; margin-top: 60px; } }
 
-  .rodape-legenda {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    margin-top: 10px;
-    font-size: 10px;
-    color: #6d5a8a;
-  }
-
-  /* ── RESPONSIVO MOBILE ── */
+  /* ── MOBILE ── */
   @media (max-width: 600px) {
-    .pagina { padding: 20px 16px; }
+    .pagina { padding: 24px 16px; }
     .header-titulo { font-size: 28px; }
     .cards-resumo { grid-template-columns: 1fr; gap: 12px; }
-    .card-resumo { padding: 18px 16px; }
-    .card-valor { font-size: 22px; }
+    .card-valor { font-size: 20px; }
     .grid-unidades { grid-template-columns: repeat(2, 1fr); gap: 10px; }
     .fluxo-linha { font-size: 12px; }
-    .fluxo-linha-valor { font-size: 12px; }
-    .fluxo-linha.resultado .fluxo-linha-label { font-size: 12px; }
-    .fluxo-linha.resultado .fluxo-linha-valor { font-size: 14px; }
+    .tabela { font-size: 11px; }
+    .tabela thead th { padding: 9px 8px; font-size: 9px; }
+    .tabela tbody td { padding: 8px; }
+    .info-box { gap: 16px; }
   }
 
   /* ── PRINT ── */
   @media print {
     body { background: var(--roxo-900) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    .pagina { padding: 20px 24px; }
-    .grid-unidades { grid-template-columns: repeat(4, 1fr); }
-    .cards-resumo { grid-template-columns: repeat(3, 1fr); }
+    .pagina { padding: 24px; }
+    .grid-unidades { grid-template-columns: repeat(4,1fr); }
+    .cards-resumo  { grid-template-columns: repeat(3,1fr); }
   }
 </style>
 </head>
 <body>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- PÁGINA 1 — DASHBOARD                               -->
+<!-- ════════════════════════════════════════════════════ -->
 <div class="pagina">
 
-  <!-- HEADER -->
   <div class="header">
     <div class="header-eyebrow">Prestação de Contas Mensal</div>
     <h1 class="header-titulo">Edifício <span>Terrazi</span></h1>
-    <div class="header-sub">Referência: 06/2026 &nbsp;—&nbsp; Junho de 2026</div>
-    <div class="header-gerado" id="dataGerado"></div>
+    <div class="header-sub" id="header-ref"></div>
+    <div class="header-gerado" id="header-gerado"></div>
   </div>
 
-  <!-- CARDS DE RESUMO -->
   <div class="secao-titulo">Resumo do Mês</div>
   <div class="cards-resumo">
     <div class="card-resumo">
       <span class="card-icone">💰</span>
       <div class="card-label">Saldo Inicial</div>
-      <div class="card-valor" id="saldoInicial"></div>
+      <div class="card-valor" id="c-saldoInicial"></div>
       <div class="card-detalhe">Nubank — início do mês</div>
     </div>
     <div class="card-resumo">
       <span class="card-icone">📤</span>
       <div class="card-label">Total Saídas</div>
-      <div class="card-valor" id="totalSaidas"></div>
+      <div class="card-valor" id="c-totalSaidas"></div>
       <div class="card-detalhe">Despesas do período</div>
     </div>
     <div class="card-resumo destaque">
       <span class="card-icone">🎯</span>
       <div class="card-label">Saldo Projetado</div>
-      <div class="card-valor" id="saldoProjetado"></div>
+      <div class="card-valor" id="c-saldoProjetado"></div>
       <div class="card-detalhe">Após quitação total</div>
     </div>
   </div>
 
-  <!-- FLUXO MINI -->
   <div class="secao-titulo">Fluxo de Caixa</div>
-  <div class="fluxo-mini">
-    <div class="fluxo-linha">
-      <span class="fluxo-linha-label">Saldo Inicial (Nubank)</span>
-      <span class="fluxo-linha-valor" id="fl-saldoInicial"></span>
-    </div>
-    <div class="fluxo-linha negativo">
-      <span class="fluxo-linha-label">(-) Fundo de Reserva [NR]</span>
-      <span class="fluxo-linha-valor" id="fl-fundoReserva"></span>
-    </div>
-    <div class="fluxo-linha negativo">
-      <span class="fluxo-linha-label">(-) Despesas Rateáveis pagas</span>
-      <span class="fluxo-linha-valor" id="fl-despesasRateaveis"></span>
-    </div>
-    <div class="fluxo-linha positivo">
-      <span class="fluxo-linha-label">(+) Créditos recebidos</span>
-      <span class="fluxo-linha-valor" id="fl-creditos"></span>
-    </div>
-    <div class="fluxo-linha resultado">
-      <span class="fluxo-linha-label">(=) Saldo Atual (Nubank)</span>
-      <span class="fluxo-linha-valor" id="fl-saldoAtual"></span>
-    </div>
-    <div class="fluxo-linha apagar">
-      <span class="fluxo-linha-label">(!) A Pagar ainda</span>
-      <span class="fluxo-linha-valor" id="fl-aPagar"></span>
-    </div>
-    <div class="fluxo-linha resultado">
-      <span class="fluxo-linha-label">(=) Saldo Projetado (após tudo)</span>
-      <span class="fluxo-linha-valor" id="fl-saldoProjetado"></span>
-    </div>
+  <div class="fluxo-box">
+    <div class="fluxo-linha">     <span class="fluxo-linha-label">Saldo Inicial (Nubank)</span>                        <span class="fluxo-linha-valor" id="f-saldoInicial"></span></div>
+    <div class="fluxo-linha neg"> <span class="fluxo-linha-label">(-) Fundo de Reserva [NR]</span>                    <span class="fluxo-linha-valor" id="f-fundoRes"></span></div>
+    <div class="fluxo-linha neg"> <span class="fluxo-linha-label">(-) Despesas Rateáveis pagas</span>                 <span class="fluxo-linha-valor" id="f-despRat"></span></div>
+    <div class="fluxo-linha pos"> <span class="fluxo-linha-label">(+) Créditos recebidos (fundo para compor caixa)</span> <span class="fluxo-linha-valor" id="f-creditos"></span></div>
+    <div class="fluxo-linha res"> <span class="fluxo-linha-label">(=) Saldo Atual (Nubank)</span>                     <span class="fluxo-linha-valor" id="f-saldoAtual"></span></div>
+    <div class="fluxo-linha apa"> <span class="fluxo-linha-label">(!) A Pagar ainda (consta na planilha, não pago)</span> <span class="fluxo-linha-valor" id="f-aPagar"></span></div>
+    <div class="fluxo-linha res"> <span class="fluxo-linha-label">(=) Saldo Projetado (após tudo)</span>              <span class="fluxo-linha-valor" id="f-saldoProj"></span></div>
   </div>
 
-  <!-- CARDS UNIDADES -->
   <div class="separador">
     <div class="separador-linha"></div>
     <div class="separador-texto">Aporte Mensal por Unidade</div>
     <div class="separador-linha"></div>
   </div>
-
   <div class="grid-unidades" id="gridUnidades"></div>
 
-  <!-- RODAPÉ -->
   <div class="rodape">
-    <div class="rodape-texto">Síndico Marco — Edifício Terrazi — Ref: 06/2026</div>
+    <div class="rodape-texto">Síndico Marco — Edifício Terrazi — <span id="rodape-ref-1"></span></div>
     <div class="rodape-legenda">
       <span>[NR] = Fundo de Reserva, não entra no rateio</span>
       <span>⏳ = Despesa pendente de pagamento</span>
     </div>
   </div>
+</div>
 
+<!-- ════════════════════════════════════════════════════ -->
+<!-- PÁGINA 2 — DESPESAS DO MÊS                         -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="pagina pagina-break">
+  <div class="header" style="margin-bottom:28px;">
+    <div class="header-eyebrow">Detalhamento</div>
+    <h2 class="header-titulo" style="font-size:34px;">Despesas do <span>Mês</span></h2>
+    <div class="header-sub" id="p2-ref"></div>
+  </div>
+
+  <div class="secao-titulo">Lançamentos do Período</div>
+  <table class="tabela">
+    <thead><tr>
+      <th class="cen" style="width:40px">Nº</th>
+      <th style="width:65px">Data</th>
+      <th>Descrição</th>
+      <th class="dir" style="width:120px">Valor</th>
+    </tr></thead>
+    <tbody id="bodyDespesas"></tbody>
+  </table>
+
+  <div class="rodape">
+    <div class="rodape-texto">Síndico Marco — Edifício Terrazi — <span id="rodape-ref-2"></span></div>
+    <div class="rodape-legenda"><span>[NR] = Fundo de Reserva &nbsp;|&nbsp; ⏳ = Pendente</span></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- PÁGINA 3 — COPASA                                  -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="pagina pagina-break">
+  <div class="header" style="margin-bottom:28px;">
+    <div class="header-eyebrow">Consumo de Água</div>
+    <h2 class="header-titulo" style="font-size:34px;">💧 <span>COPASA</span></h2>
+    <div class="header-sub">Companhia de Saneamento de Minas Gerais</div>
+  </div>
+
+  <div class="secao-titulo">Resumo da Conta</div>
+  <div class="info-box" id="infoCopasa"></div>
+
+  <div class="secao-titulo">Leituras e Consumo por Unidade</div>
+  <table class="tabela">
+    <thead><tr>
+      <th class="cen">Unidade</th>
+      <th class="dir">Leit. Anterior (m³)</th>
+      <th class="dir">Leit. Atual (m³)</th>
+      <th class="dir">Consumo (m³)</th>
+      <th class="dir">Valor (R$)</th>
+    </tr></thead>
+    <tbody id="bodyCopasa"></tbody>
+  </table>
+
+  <div class="rodape">
+    <div class="rodape-texto">Síndico Marco — Edifício Terrazi — <span id="rodape-ref-3"></span></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- PÁGINA 4 — VALOR A PAGAR POR UNIDADE               -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="pagina pagina-break">
+  <div class="header" style="margin-bottom:28px;">
+    <div class="header-eyebrow">Resumo do Aporte</div>
+    <h2 class="header-titulo" style="font-size:34px;">Valor a <span>Pagar</span></h2>
+    <div class="header-sub" id="p4-ref"></div>
+  </div>
+
+  <div class="secao-titulo">Composição do Aporte Mensal</div>
+  <table class="tabela">
+    <thead><tr>
+      <th class="cen">Unidade</th>
+      <th class="dir">Condomínio (÷8)</th>
+      <th class="dir">Água COPASA</th>
+      <th class="dir">TOTAL A PAGAR</th>
+    </tr></thead>
+    <tbody id="bodyPagar"></tbody>
+  </table>
+
+  <div class="rodape">
+    <div class="rodape-texto">Síndico Marco — Edifício Terrazi — <span id="rodape-ref-4"></span></div>
+    <div class="rodape-legenda"><span>Pagamentos via PIX ou transferência para conta do condomínio</span></div>
+  </div>
 </div>
 
 <script>
-// ── DADOS DO MÊS ── substitua os valores aqui todo mês
+// ════════════════════════════════════════════════════════
+// DADOS DO MÊS — atualize aqui todo mês
+// ════════════════════════════════════════════════════════
 const DADOS = {
-  ref:              '06/2026',
-  mes:              'Junho',
-  ano:              2026,
-  saldoInicial:     9424.45,
-  totalSaidas:      7718.37,
-  fundoReserva:     5675.53,
-  despesasRateaveis:2042.84,
-  creditos:         0,
-  saldoAtual:       1706.08,
-  aPagar:           1151.93,
-  saldoProjetado:   554.15,
-  aporteCondo:      255.36,
+  ref:           '06/2026',
+  mes:           'Junho',
+  ano:           2026,
+  saldoInicial:  9424.45,
+  totalSaidas:   7718.37,
+  fundoRes:      5675.53,
+  despRat:       2042.84,
+  creditos:      0,
+  saldoAtual:    1706.08,
+  aPagar:        1151.93,
+  saldoProj:     554.15,
+  aporteCondo:   255.36,
   unidades: [
-    { apt: '201', condo: 255.36, agua: 277.75 },
-    { apt: '202', condo: 255.36, agua: 18.38  },
-    { apt: '301', condo: 255.36, agua: 0.14   },
-    { apt: '302', condo: 255.36, agua: 0.38   },
-    { apt: '401', condo: 255.36, agua: 1.85   },
-    { apt: '402', condo: 255.36, agua: 141.44 },
-    { apt: '501', condo: 255.36, agua: 2.41   },
-    { apt: '502', condo: 255.36, agua: 4.14   },
+    { apt:'201', condo:255.36, agua:277.75 },
+    { apt:'202', condo:255.36, agua:18.38  },
+    { apt:'301', condo:255.36, agua:0.14   },
+    { apt:'302', condo:255.36, agua:0.38   },
+    { apt:'401', condo:255.36, agua:1.85   },
+    { apt:'402', condo:255.36, agua:141.44 },
+    { apt:'501', condo:255.36, agua:2.41   },
+    { apt:'502', condo:255.36, agua:4.14   },
   ]
 };
 
-// Formata moeda
+const DESPESAS = [
+  { item:1,  data:'12/06', desc:'Diarista Wanderleia',          valor:220.00,  nr:false, pago:true  },
+  { item:2,  data:'15/06', desc:'André Arquiteto',               valor:300.00,  nr:false, pago:true  },
+  { item:3,  data:'15/06', desc:'TKE — Manutenção Elevador',     valor:686.52,  nr:false, pago:true  },
+  { item:4,  data:'15/06', desc:'COPASA Condomínio',             valor:517.32,  nr:false, pago:true  },
+  { item:5,  data:'15/06', desc:'Blink — Internet Prédio',       valor:99.00,   nr:false, pago:true  },
+  { item:6,  data:'19/06', desc:'Wanderleia — Faxina Prédio',    valor:220.00,  nr:false, pago:true  },
+  { item:7,  data:'22/06', desc:'Taxa Baixa Associação Terrazi', valor:815.16,  nr:true,  pago:true  },
+  { item:8,  data:'22/06', desc:'Taxa Prefeitura Habite-se',     valor:4860.37, nr:true,  pago:true  },
+  { item:9,  data:'03/07', desc:'CEMIG',                         valor:851.93,  nr:false, pago:false },
+  { item:10, data:'30/06', desc:'Síndico Marco',                 valor:300.00,  nr:false, pago:false },
+];
+
+const COPASA = {
+  mesRef:     '06/2026',
+  valorM3:    17.244,
+  totalConta: 517.32,
+  unidades: [
+    { apt:'201', leitAnt:78.470,  leitAtual:94.577,  consumo:16.107, valor:277.75 },
+    { apt:'202', leitAnt:8.877,   leitAtual:9.943,   consumo:1.066,  valor:18.38  },
+    { apt:'301', leitAnt:5.030,   leitAtual:5.038,   consumo:0.008,  valor:0.14   },
+    { apt:'302', leitAnt:6.926,   leitAtual:6.948,   consumo:0.022,  valor:0.38   },
+    { apt:'401', leitAnt:1.848,   leitAtual:1.955,   consumo:0.107,  valor:1.85   },
+    { apt:'402', leitAnt:10.440,  leitAtual:18.642,  consumo:8.202,  valor:141.44 },
+    { apt:'501', leitAnt:3.940,   leitAtual:4.080,   consumo:0.140,  valor:2.41   },
+    { apt:'502', leitAnt:10.180,  leitAtual:10.420,  consumo:0.240,  valor:4.14   },
+  ]
+};
+
+// ════════════════════════════════════════════════════════
+// UTILITÁRIOS
+// ════════════════════════════════════════════════════════
 function fmt(v) {
   return 'R$ ' + v.toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 }
+function n3(v) {
+  return v.toFixed(3).replace('.', ',');
+}
+function set(id, val) {
+  const el = document.getElementById(id);
+  if (el) el.textContent = val;
+}
 
-// Data de geração
+// ════════════════════════════════════════════════════════
+// POPULA PÁGINA 1 — DASHBOARD
+// ════════════════════════════════════════════════════════
 const agora = new Date().toLocaleString('pt-BR', {timeZone: 'America/Sao_Paulo'});
-document.getElementById('dataGerado').textContent = 'Gerado em: ' + agora;
+set('header-ref',     'Referência: ' + DADOS.ref + ' — ' + DADOS.mes + ' de ' + DADOS.ano);
+set('header-gerado',  'Gerado em: ' + agora);
+set('c-saldoInicial', fmt(DADOS.saldoInicial));
+set('c-totalSaidas',  fmt(DADOS.totalSaidas));
+set('c-saldoProjetado', fmt(DADOS.saldoProj));
+set('f-saldoInicial', fmt(DADOS.saldoInicial));
+set('f-fundoRes',     fmt(DADOS.fundoRes));
+set('f-despRat',      fmt(DADOS.despRat));
+set('f-creditos',     fmt(DADOS.creditos));
+set('f-saldoAtual',   fmt(DADOS.saldoAtual));
+set('f-aPagar',       fmt(DADOS.aPagar));
+set('f-saldoProj',    fmt(DADOS.saldoProj));
+set('rodape-ref-1',   'Ref: ' + DADOS.ref);
 
-// Cards resumo
-document.getElementById('saldoInicial').textContent   = fmt(DADOS.saldoInicial);
-document.getElementById('totalSaidas').textContent    = fmt(DADOS.totalSaidas);
-document.getElementById('saldoProjetado').textContent = fmt(DADOS.saldoProjetado);
-
-// Fluxo de caixa
-document.getElementById('fl-saldoInicial').textContent     = fmt(DADOS.saldoInicial);
-document.getElementById('fl-fundoReserva').textContent     = fmt(DADOS.fundoReserva);
-document.getElementById('fl-despesasRateaveis').textContent= fmt(DADOS.despesasRateaveis);
-document.getElementById('fl-creditos').textContent         = fmt(DADOS.creditos);
-document.getElementById('fl-saldoAtual').textContent       = fmt(DADOS.saldoAtual);
-document.getElementById('fl-aPagar').textContent           = fmt(DADOS.aPagar);
-document.getElementById('fl-saldoProjetado').textContent   = fmt(DADOS.saldoProjetado);
-
-// Cards de unidades
+// Cards unidades
 const grid = document.getElementById('gridUnidades');
 DADOS.unidades.forEach(u => {
-  const total = u.condo + u.agua;
   grid.innerHTML += `
     <div class="card-unidade">
-      <div class="card-unidade-header">
-        <div class="card-unidade-apt">APT ${u.apt}</div>
-      </div>
+      <div class="card-unidade-header"><div class="card-unidade-num">${u.apt}</div></div>
       <div class="card-unidade-body">
-        <div class="card-linha">
-          <span class="card-linha-label">Condomínio</span>
-          <span class="card-linha-valor">${fmt(u.condo)}</span>
-        </div>
-        <div class="card-linha">
-          <span class="card-linha-label">Água COPASA</span>
-          <span class="card-linha-valor">${fmt(u.agua)}</span>
-        </div>
-        <div class="card-linha total">
-          <span class="card-linha-label">TOTAL</span>
-          <span class="card-linha-valor">${fmt(total)}</span>
-        </div>
+        <div class="card-linha"><span class="card-linha-label">Condomínio</span><span class="card-linha-valor">${fmt(u.condo)}</span></div>
+        <div class="card-linha"><span class="card-linha-label">Água COPASA</span><span class="card-linha-valor">${fmt(u.agua)}</span></div>
+        <div class="card-linha total"><span class="card-linha-label">TOTAL</span><span class="card-linha-valor">${fmt(u.condo+u.agua)}</span></div>
       </div>
     </div>`;
 });
+
+// ════════════════════════════════════════════════════════
+// POPULA PÁGINA 2 — DESPESAS
+// ════════════════════════════════════════════════════════
+const refStr = 'Ref: ' + DADOS.ref + ' — ' + DADOS.mes + ' de ' + DADOS.ano;
+set('p2-ref', refStr);
+set('rodape-ref-2', 'Ref: ' + DADOS.ref);
+
+const bodyDesp = document.getElementById('bodyDespesas');
+DESPESAS.forEach(d => {
+  const cls   = d.nr ? 'nr' : (d.pago ? '' : 'pend');
+  const badge = d.nr
+    ? '<span class="badge-nr">NR</span>'
+    : (!d.pago ? '<span class="badge-pend">⏳ pendente</span>' : '');
+  bodyDesp.innerHTML += `
+    <tr class="${cls}">
+      <td class="cen">${d.item}</td>
+      <td>${d.data}</td>
+      <td>${d.desc}${badge}</td>
+      <td class="dir">${fmt(d.valor)}</td>
+    </tr>`;
+});
+
+const totalSaidas = DESPESAS.reduce((s,d) => s+d.valor, 0);
+const fundoRes    = DESPESAS.filter(d=>d.nr).reduce((s,d) => s+d.valor, 0);
+const totalRat    = totalSaidas - fundoRes;
+const aporteUnit  = totalRat / 8;
+
+bodyDesp.innerHTML += `
+  <tr class="tot"><td colspan="3">a)  Total Saídas do Mês</td><td class="dir">${fmt(totalSaidas)}</td></tr>
+  <tr class="sub"><td colspan="3">b)  Valor utilizado do Fundo de Reserva [NR]</td><td class="dir">${fmt(fundoRes)}</td></tr>
+  <tr class="tot gold"><td colspan="3">c)  Total a ser Rateado (a−b) ÷ 8 = ${fmt(aporteUnit)} / unidade</td><td class="dir">${fmt(totalRat)}</td></tr>`;
+
+// ════════════════════════════════════════════════════════
+// POPULA PÁGINA 3 — COPASA
+// ════════════════════════════════════════════════════════
+set('rodape-ref-3', 'Ref: ' + DADOS.ref);
+
+document.getElementById('infoCopasa').innerHTML = `
+  <div class="info-item"><div class="info-item-label">Mês de Referência</div><div class="info-item-valor">${COPASA.mesRef}</div></div>
+  <div class="info-item"><div class="info-item-label">Valor do m³</div><div class="info-item-valor">R$ ${COPASA.valorM3.toFixed(4).replace('.',',')}</div></div>
+  <div class="info-item"><div class="info-item-label">Total da Conta</div><div class="info-item-valor">${fmt(COPASA.totalConta)}</div></div>`;
+
+const bodyCop = document.getElementById('bodyCopasa');
+let totCons = 0, totValCop = 0;
+COPASA.unidades.forEach(u => {
+  totCons   += u.consumo;
+  totValCop += u.valor;
+  bodyCop.innerHTML += `
+    <tr>
+      <td class="cen" style="font-weight:700;color:var(--dourado)">${u.apt}</td>
+      <td class="dir">${n3(u.leitAnt)}</td>
+      <td class="dir">${n3(u.leitAtual)}</td>
+      <td class="dir">${n3(u.consumo)}</td>
+      <td class="dir" style="color:var(--branco);font-weight:600">${fmt(u.valor)}</td>
+    </tr>`;
+});
+bodyCop.innerHTML += `
+  <tr class="tot">
+    <td class="cen">TOTAL</td>
+    <td class="dir">—</td><td class="dir">—</td>
+    <td class="dir">${n3(totCons)} m³</td>
+    <td class="dir">${fmt(totValCop)}</td>
+  </tr>`;
+
+// ════════════════════════════════════════════════════════
+// POPULA PÁGINA 4 — VALOR A PAGAR
+// ════════════════════════════════════════════════════════
+set('p4-ref',       refStr);
+set('rodape-ref-4', 'Ref: ' + DADOS.ref);
+
+const bodyPag = document.getElementById('bodyPagar');
+let totalGeral = 0;
+DADOS.unidades.forEach(u => {
+  const total = u.condo + u.agua;
+  totalGeral += total;
+  bodyPag.innerHTML += `
+    <tr>
+      <td class="cen" style="font-weight:700;color:var(--dourado);font-size:15px">${u.apt}</td>
+      <td class="dir">${fmt(u.condo)}</td>
+      <td class="dir">${fmt(u.agua)}</td>
+      <td class="dir" style="color:var(--dourado);font-weight:700;font-size:15px">${fmt(total)}</td>
+    </tr>`;
+});
+bodyPag.innerHTML += `
+  <tr class="tot gold">
+    <td class="cen">TOTAL</td>
+    <td class="dir">—</td><td class="dir">—</td>
+    <td class="dir">${fmt(totalGeral)}</td>
+  </tr>`;
 </script>
 </body>
 </html>

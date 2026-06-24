@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Gerado em: 24/06/2026 15:32 -->
+<!-- Gerado em: 24/06/2026 15:54 -->
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
@@ -120,8 +120,8 @@
   .card-label   { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--dourado); margin-bottom: 6px; }
   .card-valor   { font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 700; color: var(--branco); }
   .card-resumo.destaque .card-valor { color: var(--dourado); }
-  .card-detalhe { font-size: 10px; color: #6d5a8a; margin-top: 5px; }
-  .card-resumo.destaque .card-detalhe { color: #a07830; }
+  .card-detalhe { font-size: 12px; color: #ffffff; margin-top: 5px; font-weight: 500; }
+  .card-resumo.destaque .card-detalhe { color: #ffffff; }
 
   /* ── FLUXO ── */
   .fluxo-box {
@@ -195,7 +195,7 @@
   .card-linha-label { font-size: 9px; color: var(--texto-suave); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
   .card-linha-valor { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 600; color: var(--branco); }
   .card-linha.total .card-linha-label { color: var(--dourado); font-size: 10px; font-weight: 700; }
-  .card-linha.total .card-linha-valor { color: var(--dourado); font-size: 13px; font-weight: 700; }
+  .card-linha.total .card-linha-valor { color: var(--dourado); font-size: 20px; font-weight: 700; }
 
   /* ── TABELAS ── */
   .tabela {
@@ -259,6 +259,29 @@
   .pagina-break { page-break-before: always; break-before: page; }
   @media screen { .pagina-break { border-top: 2px dashed #4c2d8a; margin-top: 60px; } }
 
+
+  .pix-box {
+    display: inline-block;
+    background: linear-gradient(135deg, #3b1f02, #4a2a05);
+    border: 1px solid var(--dourado);
+    border-radius: 8px;
+    padding: 4px 12px;
+    margin-top: 8px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    color: var(--dourado);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .pix-label {
+    font-size: 10px;
+    color: #a78bfa;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 3px;
+  }
   /* ── MOBILE ── */
   @media (max-width: 600px) {
     .pagina { padding: 24px 16px; }
@@ -337,7 +360,8 @@
   <div class="grid-unidades" id="gridUnidades"></div>
 
   <div class="rodape">
-    <div class="rodape-texto">Síndico Marco — Edifício Terrazi — <span id="rodape-ref-1"></span></div>
+    <div class="rodape-texto">Feito por: Marco — Edifício Terrazi — <span id="rodape-ref-1"></span></div>
+    <div style="text-align:center;margin-top:8px"><span class="pix-label">Chave PIX</span><span class="pix-box">💰 terrazi597@gmail.com</span></div>
     <div class="rodape-legenda">
       <span>[NR] = Fundo de Reserva, não entra no rateio</span>
       <span>⏳ = Despesa pendente de pagamento</span>
@@ -367,7 +391,8 @@
   </table>
 
   <div class="rodape">
-    <div class="rodape-texto">Síndico Marco — Edifício Terrazi — <span id="rodape-ref-2"></span></div>
+    <div class="rodape-texto">Feito por: Marco — Edifício Terrazi — <span id="rodape-ref-2"></span></div>
+    <div style="text-align:center;margin-top:8px"><span class="pix-label">Chave PIX</span><span class="pix-box">💰 terrazi597@gmail.com</span></div>
     <div class="rodape-legenda"><span>[NR] = Fundo de Reserva &nbsp;|&nbsp; ⏳ = Pendente</span></div>
   </div>
 </div>
@@ -398,7 +423,8 @@
   </table>
 
   <div class="rodape">
-    <div class="rodape-texto">Síndico Marco — Edifício Terrazi — <span id="rodape-ref-3"></span></div>
+    <div class="rodape-texto">Feito por: Marco — Edifício Terrazi — <span id="rodape-ref-3"></span></div>
+    <div style="text-align:center;margin-top:8px"><span class="pix-label">Chave PIX</span><span class="pix-box">💰 terrazi597@gmail.com</span></div>
   </div>
 </div>
 
@@ -424,7 +450,8 @@
   </table>
 
   <div class="rodape">
-    <div class="rodape-texto">Síndico Marco — Edifício Terrazi — <span id="rodape-ref-4"></span></div>
+    <div class="rodape-texto">Feito por: Marco — Edifício Terrazi — <span id="rodape-ref-4"></span></div>
+    <div style="text-align:center;margin-top:8px"><span class="pix-label">Chave PIX</span><span class="pix-box">💰 terrazi597@gmail.com</span></div>
     <div class="rodape-legenda"><span>Pagamentos via PIX ou transferência para conta do condomínio</span></div>
   </div>
 </div>
@@ -438,37 +465,37 @@ const DADOS = {
   mes:           'Junho',
   ano:           2026,
   saldoInicial:  9424.45,
-  totalSaidas:   7718.37,
+  totalSaidas:   8870.30,
   fundoRes:      5675.53,
-  despRat:       2042.84,
+  despRat:       3194.77,
   creditos:      0,
   saldoAtual:    1706.08,
   aPagar:        1151.93,
   saldoProj:     554.15,
-  aporteCondo:   255.36,
+  aporteCondo:   399.35,
   unidades: [
-    { apt:'201', condo:255.36, agua:277.75 },
-    { apt:'202', condo:255.36, agua:18.38  },
-    { apt:'301', condo:255.36, agua:0.14   },
-    { apt:'302', condo:255.36, agua:0.38   },
-    { apt:'401', condo:255.36, agua:1.85   },
-    { apt:'402', condo:255.36, agua:141.44 },
-    { apt:'501', condo:255.36, agua:2.41   },
-    { apt:'502', condo:255.36, agua:4.14   },
+    { apt:'201', condo:399.35, agua:277.75 },
+    { apt:'202', condo:399.35, agua:18.38  },
+    { apt:'301', condo:399.35, agua:0.14   },
+    { apt:'302', condo:399.35, agua:0.38   },
+    { apt:'401', condo:399.35, agua:1.85   },
+    { apt:'402', condo:399.35, agua:141.44 },
+    { apt:'501', condo:399.35, agua:2.41   },
+    { apt:'502', condo:399.35, agua:4.14   },
   ]
 };
 
 const DESPESAS = [
-  { item:1,  data:'12/06', desc:'Diarista Wanderleia',          valor:220.00,  nr:false, pago:true  },
-  { item:2,  data:'15/06', desc:'André Arquiteto',               valor:300.00,  nr:false, pago:true  },
-  { item:3,  data:'15/06', desc:'TKE — Manutenção Elevador',     valor:686.52,  nr:false, pago:true  },
-  { item:4,  data:'15/06', desc:'COPASA Condomínio',             valor:517.32,  nr:false, pago:true  },
-  { item:5,  data:'15/06', desc:'Blink — Internet Prédio',       valor:99.00,   nr:false, pago:true  },
-  { item:6,  data:'19/06', desc:'Wanderleia — Faxina Prédio',    valor:220.00,  nr:false, pago:true  },
-  { item:7,  data:'22/06', desc:'Taxa Baixa Associação Terrazi', valor:815.16,  nr:true,  pago:true  },
-  { item:8,  data:'22/06', desc:'Taxa Prefeitura Habite-se',     valor:4860.37, nr:true,  pago:true  },
-  { item:9,  data:'03/07', desc:'CEMIG',                         valor:851.93,  nr:false, pago:false },
-  { item:10, data:'30/06', desc:'Síndico Marco',                 valor:300.00,  nr:false, pago:false },
+  { item:1,  data:'27/06', desc:'COPASA Condomínio',             valor:70.84,   nr:false, pago:true  },
+  { item:2,  data:'03/06', desc:'CEMIG',                         valor:851.93,  nr:false, pago:false },
+  { item:3,  data:'03/07', desc:'Síndico Marco',                 valor:300.00,  nr:false, pago:false },
+  { item:4,  data:'10/06', desc:'Blink — Internet Prédio',       valor:99.00,   nr:false, pago:true  },
+  { item:5,  data:'15/06', desc:'TKE — Manutenção Elevador',     valor:686.52,  nr:false, pago:true  },
+  { item:6,  data:'12/06', desc:'Diarista',                      valor:220.00,  nr:false, pago:true  },
+  { item:7,  data:'15/06', desc:'André Arquiteto',               valor:300.00,  nr:false, pago:true  },
+  { item:8,  data:'19/06', desc:'Wanderleia — Faxina Prédio',    valor:220.00,  nr:false, pago:true  },
+  { item:9,  data:'22/06', desc:'Taxa Baixa Associação Terrazi', valor:815.16,  nr:true,  pago:true  },
+  { item:10, data:'22/06', desc:'Taxa Prefeitura Habite-se',     valor:4860.37, nr:true,  pago:true  },
 ];
 
 const COPASA = {
